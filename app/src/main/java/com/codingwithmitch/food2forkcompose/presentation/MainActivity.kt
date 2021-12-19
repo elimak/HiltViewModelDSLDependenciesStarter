@@ -1,37 +1,26 @@
 package com.codingwithmitch.food2forkcompose.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
-import coil.ImageLoader
-import com.codingwithmitch.food2forkcompose.datastore.SettingsDataStore
-import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
-import com.codingwithmitch.food2forkcompose.presentation.ui.recipe.RecipeDetailScreen
-import com.codingwithmitch.food2forkcompose.presentation.ui.recipe.RecipeViewModel
-import com.codingwithmitch.food2forkcompose.presentation.ui.recipe_list.RecipeListScreen
-import com.codingwithmitch.food2forkcompose.presentation.ui.recipe_list.RecipeListViewModel
-import com.codingwithmitch.food2forkcompose.presentation.util.ConnectivityManager
+import com.codingwithmitch.food2forkcompose.presentationNew.navigation.Screen
 import com.codingwithmitch.food2forkcompose.presentationNew.Greeting1
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @ExperimentalMaterialApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
-  @Inject
-  lateinit var connectivityManager: ConnectivityManager
+  //@Inject
+  //lateinit var connectivityManager: ConnectivityManager
 
   //@Inject
   //lateinit var settingsDataStore: SettingsDataStore

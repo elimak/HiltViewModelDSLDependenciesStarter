@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation.navigation
+package com.codingwithmitch.food2forkcompose.presentationNew.navigation
 
 sealed class Screen(
     val route: String,
