@@ -20,6 +20,7 @@ import com.codingwithmitch.food2forkcompose.presentation.ui.recipe.RecipeViewMod
 import com.codingwithmitch.food2forkcompose.presentation.ui.recipe_list.RecipeListScreen
 import com.codingwithmitch.food2forkcompose.presentation.ui.recipe_list.RecipeListViewModel
 import com.codingwithmitch.food2forkcompose.presentation.util.ConnectivityManager
+import com.codingwithmitch.food2forkcompose.presentationNew.Greeting1
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
@@ -32,17 +33,17 @@ class MainActivity : AppCompatActivity(){
   @Inject
   lateinit var connectivityManager: ConnectivityManager
 
-  @Inject
-  lateinit var settingsDataStore: SettingsDataStore
+  //@Inject
+  //lateinit var settingsDataStore: SettingsDataStore
 
   override fun onStart() {
     super.onStart()
-    connectivityManager.registerConnectionObserver(this)
+    //connectivityManager.registerConnectionObserver(this)
   }
 
   override fun onDestroy() {
     super.onDestroy()
-    connectivityManager.unregisterConnectionObserver(this)
+    //connectivityManager.unregisterConnectionObserver(this)
   }
 
   @ExperimentalComposeUiApi
@@ -51,9 +52,13 @@ class MainActivity : AppCompatActivity(){
     setContent {
       val navController = rememberNavController()
         NavHost(navController = navController, startDestination = Screen.RecipeList.route) {
-          composable(route = Screen.RecipeList.route) { navBackStackEntry ->
+
+      composable(route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: RecipeListViewModel = viewModel("RecipeListViewModel", factory)
+          Greeting1(name = "1111")
+          //val viewModel: RecipeListViewModel = viewModel("RecipeListViewModel", factory)
+
+            /*
             RecipeListScreen(
               isDarkTheme = settingsDataStore.isDark.value,
               isNetworkAvailable = connectivityManager.isNetworkAvailable.value,
@@ -61,6 +66,8 @@ class MainActivity : AppCompatActivity(){
               onNavigateToRecipeDetailScreen = navController::navigate,
               viewModel = viewModel,
             )
+
+             */
           }
           composable(
             route = Screen.RecipeDetail.route + "/{recipeId}",
@@ -69,13 +76,17 @@ class MainActivity : AppCompatActivity(){
             })
           ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: RecipeViewModel = viewModel("RecipeDetailViewModel", factory)
+            Greeting1(name = "2222")
+            //val viewModel: RecipeViewModel = viewModel("RecipeDetailViewModel", factory)
+            /*
             RecipeDetailScreen(
               isDarkTheme = settingsDataStore.isDark.value,
               isNetworkAvailable = connectivityManager.isNetworkAvailable.value,
               recipeId = navBackStackEntry.arguments?.getInt("recipeId"),
               viewModel = viewModel,
             )
+
+             */
           }
         }
 
