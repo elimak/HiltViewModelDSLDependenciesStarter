@@ -7,10 +7,11 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.codingwithmitch.food2forkcompose.presentationNew.navigation.Screen
-import com.codingwithmitch.food2forkcompose.presentationNew.Greeting1
+import com.codingwithmitch.food2forkcompose.presentationNew.ui.Greetings1ViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -44,9 +45,9 @@ class MainActivity : AppCompatActivity(){
 
       composable(route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-          Greeting1(name = "1111")
-          //val viewModel: RecipeListViewModel = viewModel("RecipeListViewModel", factory)
 
+          val viewModel: Greetings1ViewModel = viewModel("RecipeListViewModel", factory)
+          Greeting1(name = "1111",viewModel = viewModel)
             /*
             RecipeListScreen(
               isDarkTheme = settingsDataStore.isDark.value,
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity(){
             })
           ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            Greeting1(name = "2222")
+            Greeting2(name = "2222")
             //val viewModel: RecipeViewModel = viewModel("RecipeDetailViewModel", factory)
             /*
             RecipeDetailScreen(
