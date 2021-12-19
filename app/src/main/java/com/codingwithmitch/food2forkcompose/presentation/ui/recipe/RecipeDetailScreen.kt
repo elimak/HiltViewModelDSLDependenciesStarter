@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.codingwithmitch.food2forkcompose.presentation.components.IMAGE_HEIGHT
 import com.codingwithmitch.food2forkcompose.presentation.components.LoadingRecipeShimmer
 import com.codingwithmitch.food2forkcompose.presentation.components.RecipeView
-import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
+import com.codingwithmitch.food2forkcompose.presentationNew.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalComposeUiApi

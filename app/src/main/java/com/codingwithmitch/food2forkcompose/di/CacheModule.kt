@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.codingwithmitch.food2forkcompose.cache.RecipeDao
 import com.codingwithmitch.food2forkcompose.cache.database.AppDatabase
 import com.codingwithmitch.food2forkcompose.cache.model.RecipeEntityMapper
-import com.codingwithmitch.food2forkcompose.presentation.BaseApplication
+import com.codingwithmitch.food2forkcompose.presentationNew.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
