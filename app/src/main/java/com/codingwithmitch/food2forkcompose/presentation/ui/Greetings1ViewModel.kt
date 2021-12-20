@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentationNew.ui
+package com.codingwithmitch.food2forkcompose.presentation.ui
 
 
 import androidx.lifecycle.ViewModel

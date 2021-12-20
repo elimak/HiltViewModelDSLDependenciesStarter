@@ -1,7 +1,7 @@
 package com.codingwithmitch.food2forkcompose.di
 
 import android.content.Context
-import com.codingwithmitch.food2forkcompose.presentationNew.BaseApplication
+import com.codingwithmitch.food2forkcompose.presentation.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

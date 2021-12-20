@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentationNew
+package com.codingwithmitch.food2forkcompose.presentation
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
