@@ -1,8 +1,9 @@
-package com.example.voting.voting
+package com.codingwithmitch.food2forkcompose.modules.voting
 
-import com.example.voting.voting.VotingConstants.maxVotesPerTopic
-import com.example.voting.voting.VotingConstants.minVotes
-import com.example.voting.voting.VotingConstants.minVotesPerTopic
+import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingConstants.maxVotesPerTopic
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingConstants.minVotes
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingConstants.minVotesPerTopic
 
 
 // todo does not need to be singelton
@@ -10,13 +11,13 @@ object Voting {
 
 
 
-    fun vote(topicVote:TopicVote){
+    fun vote(topicVote: TopicVote){
         if(VotingLimitsState.votingPointsLeft > minVotes) {
             voteIncrease(topicVote)
         }
     }
 
-    private fun voteIncrease(topicVote:TopicVote){
+    private fun voteIncrease(topicVote: TopicVote){
         if (topicVote.vote < maxVotesPerTopic  ){
             topicVote.vote++
             VotingLimitsState.votingPointsLeft--
@@ -25,13 +26,13 @@ object Voting {
 
 
 
-    fun deVote(topicVote:TopicVote){
+    fun deVote(topicVote: TopicVote){
         //if(VotingLimitsState.votingPointsLeft < maxVotes) { // Max votes not needed // it just would be same as initialVotingPoints
             voteDecrease(topicVote)
         //}
     }
 
-    private fun voteDecrease(topicVote:TopicVote){
+    private fun voteDecrease(topicVote: TopicVote){
         if(topicVote.vote > minVotesPerTopic  ){
             topicVote.vote--
             VotingLimitsState.votingPointsLeft++

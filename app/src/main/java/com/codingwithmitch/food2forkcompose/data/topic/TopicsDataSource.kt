@@ -1,6 +1,5 @@
 package com.codingwithmitch.food2forkcompose.data.topic
 
-import com.codingwithmitch.food2forkcompose.data.topic.Topic
 
 class TopicsDataSource {
 

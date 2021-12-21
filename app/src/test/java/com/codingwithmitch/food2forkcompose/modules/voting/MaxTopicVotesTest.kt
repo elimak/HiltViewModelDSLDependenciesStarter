@@ -1,9 +1,6 @@
-package com.example.voting
+package com.codingwithmitch.food2forkcompose.modules.voting
 
-import com.example.voting.voting.TopicVote
-import com.example.voting.voting.Voting
-import com.example.voting.voting.VotingLimitsState
-import com.example.voting.voting.VotingState
+
 import org.junit.Assert
 import org.junit.Test
 // TODO just 1 assert per test is better?

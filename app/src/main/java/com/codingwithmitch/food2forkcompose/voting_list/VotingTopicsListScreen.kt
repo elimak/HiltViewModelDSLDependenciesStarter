@@ -1,4 +1,4 @@
-package com.example.composelist
+package com.codingwithmitch.food2forkcompose.voting_list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 //import androidx.hilt.navigation.compose.hiltViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
-import com.example.votingapp.voting_list.VotingTopicsListViewModel
 
 @Composable
 fun TopicsList(

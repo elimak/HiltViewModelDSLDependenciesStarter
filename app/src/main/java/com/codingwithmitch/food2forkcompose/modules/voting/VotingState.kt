@@ -1,4 +1,6 @@
-package com.example.voting.voting
+package com.codingwithmitch.food2forkcompose.modules.voting
+
+import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
 object VotingState {
     lateinit var topicVotes : MutableList<TopicVote>

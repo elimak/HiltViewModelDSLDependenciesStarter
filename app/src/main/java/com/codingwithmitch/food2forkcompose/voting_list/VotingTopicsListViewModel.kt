@@ -1,9 +1,10 @@
-package com.example.votingapp.voting_list
+package com.codingwithmitch.food2forkcompose.voting_list
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.voting.voting.TopicVote
+import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
+
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

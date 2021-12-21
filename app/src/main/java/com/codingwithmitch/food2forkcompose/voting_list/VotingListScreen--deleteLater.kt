@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 //import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.votingapp.voting_list.VotingTopicsListViewModel
 
 @ExperimentalAnimationApi
 @Composable

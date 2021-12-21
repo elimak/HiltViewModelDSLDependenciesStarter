@@ -7,6 +7,7 @@ class TopicConverterToTopicVote(private val topics: MutableList<Topic>) { // TOD
 
     fun convertToTopicVotes():MutableList<TopicVote>{  // TODO invoke    /// using map !!!!!!
         var topicVotes : MutableList<TopicVote> =   mutableListOf()
+       // var topicVotes : MutableList<com.codingwithmitch.food2forkcompose.modules.voting.TopicVote> =   mutableListOf()
         // TODO  loop not hardcoded
         topicVotes.add(topicToTopicVote(0,topics[0]))
         topicVotes.add(topicToTopicVote(1,topics[1]))

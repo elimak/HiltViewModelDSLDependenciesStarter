@@ -1,4 +1,4 @@
-package com.example.voting.voting
+package com.codingwithmitch.food2forkcompose.modules.voting
 
 object VotingConstants {
 
