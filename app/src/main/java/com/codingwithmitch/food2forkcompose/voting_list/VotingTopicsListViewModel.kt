@@ -1,9 +1,11 @@
 package com.codingwithmitch.food2forkcompose.voting_list
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingState
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -41,10 +43,33 @@ import javax.inject.Inject
         // TODO have private _topicVoteState
     //private val _topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
     //val topicVoteState: State<List<TopicVote>> = _topicVoteState
-    val topicVoteState: State<List<TopicVote>> = mutableStateOf(ArrayList())
+
+    //val topicVoteState: State<List<TopicVote>> = mutableStateOf(ArrayList())
+
+    //val recipe: MutableState<Recipe?> = mutableStateOf(null)
+
+          //--->var topicVoteState: List<TopicVote> = mutableStateOf(ArrayList())
+              //  val loading = mutableStateOf(false)
+
+
+
+                   val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
+
+    //val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
 
     init {
+        /*
+        var topics:  MutableList<TopicVote> = mutableListOf()
+        topics.add(TopicVote(0,"a",1))
+        topics.add(TopicVote(1,"b",1))
+        topics.add(TopicVote(2,"c",1))
+
+        loading.value = true
+
+        //topicVoteState.value = topics//
+         */
+        topicVoteState.value = VotingState.topicVotes // TODO
         onTriggerEvent()
     }
 

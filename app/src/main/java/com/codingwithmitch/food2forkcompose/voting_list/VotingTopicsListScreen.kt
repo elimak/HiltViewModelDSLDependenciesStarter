@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 //import androidx.hilt.navigation.compose.hiltViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
+import com.codingwithmitch.food2forkcompose.presentation.components.VoteCard
 
 @Composable
 fun TopicsList(
@@ -34,22 +35,19 @@ fun TopicsList(
         .background(color = MaterialTheme.colors.surface)
     ) {
 
-
+//////////////
         // todo id  dazu //
+        var topics:  List<TopicVote> = topicVoteState
+        /*
         var topics:  MutableList<TopicVote> = mutableListOf()
         topics.add(TopicVote(0,"a",1))
         topics.add(TopicVote(1,"b",1))
         topics.add(TopicVote(2,"c",1))
 
+         */
+/////////////
 
-        /*
-        if (loading && topics.isEmpty()) {
-            LoadingRecipeListShimmer(imageHeight = 250.dp,)
-        }
-        else if(topics.isEmpty()){
-            NothingHere()
-        }
-        else {*/
+
             LazyColumn{
                 itemsIndexed(
                     items = topics
@@ -62,63 +60,19 @@ fun TopicsList(
                     VoteCard(
                         topicVote = recipe,
                         onClick = {
-                           // val route = Screen.RecipeDetail.route + "/${recipe.id}"
+                            // val route = Screen.RecipeDetail.route + "/${recipe.id}"
                             //onNavigateToRecipeDetailScreen(route)
-                        }
+                        },
+                        topicVoteState = topicVoteState
+
                     )
+
+
                 }
             }
         }
-    //}
-}
-
-
-/// TODO PUT TO COMPonents
-@Composable
-fun VoteCard(topicVote: TopicVote, onClick: () -> Unit) {
-    Card(
-        shape = MaterialTheme.shapes.small,
-        modifier = Modifier
-            .padding(
-                bottom = 6.dp,
-                top = 6.dp,
-            )
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        elevation = 8.dp,
-    ) {
-        Column {
-            /*CoilImage(
-                data = recipe.featuredImage,
-                contentDescription = recipe.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(225.dp),
-                contentScale = ContentScale.Crop,
-            )*/
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
-            ) {
-                Text(
-                    text = topicVote.text,
-                    modifier = Modifier
-                        .fillMaxWidth(0.85f)
-                        .wrapContentWidth(Alignment.Start),
-                    style = MaterialTheme.typography.h3
-                )
-                //val rank = recipe.rating.toString()
-                /*Text(
-                    text = rank,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentWidth(Alignment.End)
-                        .align(Alignment.CenterVertically),
-                    style = MaterialTheme.typography.h5
-                )*/
-            }
-        }
-    }
 
 }
+
+
+

@@ -10,6 +10,7 @@ import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
+import com.codingwithmitch.food2forkcompose.data.voting.VotingInit
 import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
 import com.codingwithmitch.food2forkcompose.voting_list.TopicsList
 import com.codingwithmitch.food2forkcompose.voting_list.VotingTopicsListViewModel
@@ -26,7 +27,10 @@ class MainActivity : AppCompatActivity(){
   @ExperimentalComposeUiApi
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContent {
+
+      VotingInit
+
+      setContent {
       val navController = rememberNavController()
         NavHost(navController = navController, startDestination = Screen.RecipeList.route) {
 
