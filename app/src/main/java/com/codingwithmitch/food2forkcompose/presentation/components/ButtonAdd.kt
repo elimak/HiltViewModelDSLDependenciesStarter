@@ -21,7 +21,7 @@ fun Button1(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<Topic
     Button(
 
         onClick = {
-
+            topicVoteState[topicVote.id].vote++
            val d =  topicVoteState
            val c=  topicVoteState
 

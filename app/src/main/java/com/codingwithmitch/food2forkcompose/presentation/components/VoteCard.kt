@@ -16,7 +16,7 @@ import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
 
 
-@Composable
+@Composable // TODO topicVote raus und nur topicvote nhemen??
 fun VoteCard(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<TopicVote>) {
     Card(
         shape = MaterialTheme.shapes.small,
@@ -51,7 +51,7 @@ fun VoteCard(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<Topi
                     style = MaterialTheme.typography.h3
                 )
                 Text(
-                    text = topicVote.vote.toString() ,
+                    text = topicVoteState[topicVote.id].vote.toString(),//topicVote.vote.toString() ,
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
                         .wrapContentWidth(Alignment.Start),
