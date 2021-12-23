@@ -33,7 +33,7 @@ fun TopicsList(
     val topicVoteState  = viewModelTopics.topicVoteState.value
 
 //////// -- testing
-    val count  = viewModelTopics.count.value
+    val count  = viewModelTopics.count.value[1]
     ///// -- testing
 
     ///////
