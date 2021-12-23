@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -31,11 +32,26 @@ fun TopicsList(
 ){
     val topicVoteState  = viewModelTopics.topicVoteState.value
 
+//////// -- testing
+    val count  = viewModelTopics.count.value
+    ///// -- testing
+
+    ///////
+
     Box(modifier = Modifier
         .background(color = MaterialTheme.colors.surface)
     ) {
 
-//////////////
+//////////////----------- testing
+        Button(onClick = { viewModelTopics.onTriggerEvent() }) {
+
+
+            Text(text = count.toString())
+        }
+
+
+        ////////////////////////////-----
+
         // todo id  dazu //
         var topics:  List<TopicVote> = topicVoteState
         /*
@@ -47,7 +63,7 @@ fun TopicsList(
          */
 /////////////
 
-
+/*
             LazyColumn{
                 itemsIndexed(
                     items = topics
@@ -57,19 +73,21 @@ fun TopicsList(
                     if ((index + 1) >= (page * PAGE_SIZE) && !loading) {
                         onTriggerNextPage()
                     }*/
+                    var votes = topicVoteState[recipe.id].vote
                     VoteCard(
                         topicVote = recipe,
                         onClick = {
                             // val route = Screen.RecipeDetail.route + "/${recipe.id}"
                             //onNavigateToRecipeDetailScreen(route)
                         },
-                        topicVoteState = topicVoteState
+                        topicVoteState = topicVoteState,
+                        votes = votes
 
                     )
 
 
                 }
-            }
+            }*/
         }
 
 }
