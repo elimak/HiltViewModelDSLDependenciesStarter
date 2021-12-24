@@ -2,6 +2,7 @@ package com.codingwithmitch.food2forkcompose.voting_list
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
@@ -57,8 +58,10 @@ import javax.inject.Inject
 
     var topics = mutableListOf(0,100)
     //var count  = mutableStateOf(0)
-    var count  = mutableStateOf(topics)
 
+
+    //var count:MutableState<MutableList<Int>>  = mutableStateOf(topics)
+    var count = mutableStateListOf(topics)
 
     //val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
@@ -83,8 +86,15 @@ import javax.inject.Inject
     fun onTriggerEvent(){
         newUpdateList()
         //count.value++
-        count.value[1] = count.value[1] +1
+
+
+        count[1] = (count[1] +1) as MutableList<Int>
+        /*
+        var topics = mutableListOf(count.value[0],count.value[1])
+        count.value = topics
+    */
     }
+
 
 
     private fun newUpdateList(){
