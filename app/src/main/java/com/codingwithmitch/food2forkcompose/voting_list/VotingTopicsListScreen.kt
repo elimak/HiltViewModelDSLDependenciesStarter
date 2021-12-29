@@ -33,12 +33,14 @@ fun TopicsList(
      */
 ){
     val topicVoteState  = viewModelTopics.topicVoteState.value
-
+    var topicVoteStateChanged  = viewModelTopics.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
 //////// -- testing
     var count  = viewModelTopics.count.value
     ///// -- testing
-    var count2  = viewModelTopics.count2.value
-    val counterState = remember { mutableStateOf(count2) }
+
+    // nur durch eine loading variable checkd or das !!!
+    //var count2  = viewModelTopics.count2.value
+    //--val counterState = remember { mutableStateOf(count2) }
     ///////
 
     Box(modifier = Modifier
@@ -50,7 +52,7 @@ fun TopicsList(
 
             //Text(text = counterState.value.toString())
             //-----Text(text = count2.toString())
-            Text(text = count.toString())
+            Text(text = count[1].toString()) // or only count count
             //Text(text = count[1].toString())
         }
 

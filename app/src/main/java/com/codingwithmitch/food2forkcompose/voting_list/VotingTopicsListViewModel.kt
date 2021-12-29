@@ -55,6 +55,7 @@ import javax.inject.Inject
 
 
                    val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
+    var topicVoteStateChanged:MutableState<Boolean> = mutableStateOf(false)
 
     var topics = mutableListOf(0,100)
     var count2  = mutableStateOf(0)
@@ -89,7 +90,7 @@ import javax.inject.Inject
         newUpdateList()
         count2.value++
         count.value[1] = count.value[1] +1//count[1] +1
-
+        topicVoteStateChanged.value = !topicVoteStateChanged.value // TODO not optimal
         //count[1] = (count[1] +1) as MutableList<Int>
 
        var stuff = "fdf"
