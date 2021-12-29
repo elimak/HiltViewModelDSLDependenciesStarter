@@ -57,11 +57,13 @@ import javax.inject.Inject
                    val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
 
     var topics = mutableListOf(0,100)
-    //var count  = mutableStateOf(0)
+    var count2  = mutableStateOf(0)
 
 
-    //var count:MutableState<MutableList<Int>>  = mutableStateOf(topics)
-    var count = mutableStateListOf(topics)
+
+    //val favourites by mutableStateListOf<Track>()
+    var count:MutableState<MutableList<Int>>  = mutableStateOf(topics)
+   //---- var count = mutableStateListOf(topics)
 
     //val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
@@ -85,10 +87,12 @@ import javax.inject.Inject
     //fun onTriggerEvent(event: TopicVoteListEvent){
     fun onTriggerEvent(){
         newUpdateList()
-        //count.value++
+        count2.value++
+        count.value[1] = count.value[1] +1//count[1] +1
 
+        //count[1] = (count[1] +1) as MutableList<Int>
 
-        count[1] = (count[1] +1) as MutableList<Int>
+       var stuff = "fdf"
         /*
         var topics = mutableListOf(count.value[0],count.value[1])
         count.value = topics

@@ -10,6 +10,8 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -33,9 +35,10 @@ fun TopicsList(
     val topicVoteState  = viewModelTopics.topicVoteState.value
 
 //////// -- testing
-    val count  = viewModelTopics.count.value
+    var count  = viewModelTopics.count.value
     ///// -- testing
-
+    var count2  = viewModelTopics.count2.value
+    val counterState = remember { mutableStateOf(count2) }
     ///////
 
     Box(modifier = Modifier
@@ -45,8 +48,10 @@ fun TopicsList(
 //////////////----------- testing
         Button(onClick = { viewModelTopics.onTriggerEvent() }) {
 
-
-            Text(text = count[1].toString())
+            //Text(text = counterState.value.toString())
+            //-----Text(text = count2.toString())
+            Text(text = count.toString())
+            //Text(text = count[1].toString())
         }
 
 
