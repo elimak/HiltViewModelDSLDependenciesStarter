@@ -81,7 +81,7 @@ fun TopicsList(
                     if ((index + 1) >= (page * PAGE_SIZE) && !loading) {
                         onTriggerNextPage()
                     }*/
-                    var votes = topicVoteState[topic.id].vote
+                    //var votes = topicVoteState[topic.id].vote
                     VoteCard(
                         topicVote = topic,
                         onClick = {
@@ -89,7 +89,8 @@ fun TopicsList(
                             //onNavigateToRecipeDetailScreen(route)
                         },
                         topicVoteState = topicVoteState,
-                        votes = votes
+                        //votes = votes
+                        index = index
 
                     )
 

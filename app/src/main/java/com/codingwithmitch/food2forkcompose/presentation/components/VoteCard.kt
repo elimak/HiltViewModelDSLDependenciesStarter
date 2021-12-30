@@ -17,8 +17,10 @@ import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
 
 @Composable // TODO topicVote raus und nur topicvote nhemen??
-fun VoteCard(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<TopicVote>,votes:Int) {
-    var typ = topicVoteState;//[topicVote.id].vote.toString()
+fun VoteCard(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<TopicVote>,
+             index:Int
+) {
+    //var typ = topicVoteState;//[topicVote.id].vote.toString()
     Card(
         shape = MaterialTheme.shapes.small,
         modifier = Modifier
@@ -52,7 +54,8 @@ fun VoteCard(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<Topi
                     style = MaterialTheme.typography.h3
                 )
                 Text(
-                    text= votes.toString(),//typ[topicVote.id].vote.toString(),
+                    text = topicVoteState[index].vote.toString(),
+                    //text= votes.toString(),//typ[topicVote.id].vote.toString(),
                     //text = topicVoteState[topicVote.id].vote.toString(),//topicVote.vote.toString() ,
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
