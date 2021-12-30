@@ -64,8 +64,9 @@ fun VoteCard(topicVote: TopicVote,
                         .wrapContentWidth(Alignment.Start),
                     style = MaterialTheme.typography.h3
                 )
+
                 Text(
-                    text = topicVote.text.toString(),
+                    text = topicVote.vote.toString(),
                     //text = topicVoteState[index].vote.toString(),
                     //text= votes.toString(),//typ[topicVote.id].vote.toString(),
                     //text = topicVoteState[topicVote.id].vote.toString(),//topicVote.vote.toString() ,
@@ -74,6 +75,8 @@ fun VoteCard(topicVote: TopicVote,
                         .wrapContentWidth(Alignment.Start),
                     style = MaterialTheme.typography.h3
                 )
+
+
                 //Button1()
 
                 /*Button(onClick = { /*TODO*/ }) {
