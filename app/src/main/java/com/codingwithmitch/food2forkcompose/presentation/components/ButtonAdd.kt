@@ -12,40 +12,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
 @Composable
-fun Button1(topicVote: TopicVote, onTopicVoteIndexChanged: (Int) -> Unit,
-            onVote: () -> Unit,){
-
+fun ButtonVote(
+                onTopicVoteIndexChanged: () -> Unit,
+               onVote: () -> Unit,){
 
     Button(
-
         onClick = {
-            onTopicVoteIndexChanged(topicVote.id)
+            onTopicVoteIndexChanged()
             onVote()
-                  //topicVoteState[topicVote.id].vote++
-           //val d =  topicVoteState
-           //val c=  topicVoteState
 
         },
-        // in below line we are using modifier
-        // which is use to add padding to our button
         modifier = Modifier.padding(all = Dp(10F)),
-
-        // below line is use to set or
-        // button as enable or disable.
         enabled = true,
-
-        // below line is use to
-        // add border to our button.
         border = BorderStroke(width = 1.dp, brush = SolidColor(Color.Blue)),
-
-        // below line is use to add shape for our button.
         shape = MaterialTheme.shapes.medium,
     )
-    // below line is use to
-    // add text on our button
     {
         Text(text = "+", color = Color.White)
     }

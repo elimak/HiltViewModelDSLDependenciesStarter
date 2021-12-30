@@ -1,8 +1,6 @@
 package com.codingwithmitch.food2forkcompose.presentation.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -11,7 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
-import com.codingwithmitch.food2forkcompose.voting_list.VotingListEvent
 
 /*
 topicVote = topic,
@@ -27,7 +24,7 @@ onUnVote = {
 @Composable // TODO topicVote raus und nur topicvote nhemen??
 fun VoteCard(topicVote: TopicVote,
              topicVoteIndex:Int,
-             onTopicVoteIndexChanged: (Int) -> Unit,
+             onTopicVoteIndexChanged: () -> Unit,
              onVote: () -> Unit,
              onUnVote: () -> Unit
 ) {
@@ -110,7 +107,7 @@ fun VoteCard(topicVote: TopicVote,
                         .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
                     ) {
                 //Button1(topicVote = topicVote, onClick = onClick,topicVoteState)
-                Button1(topicVote = topicVote, onTopicVoteIndexChanged = onTopicVoteIndexChanged,onVote = onVote)
+                ButtonVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged,onVote = onVote)
             }
             /*
             Row(modifier = Modifier

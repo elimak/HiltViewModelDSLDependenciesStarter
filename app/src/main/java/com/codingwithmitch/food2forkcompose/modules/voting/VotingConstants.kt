@@ -2,7 +2,7 @@ package com.codingwithmitch.food2forkcompose.modules.voting
 
 object VotingConstants {
 
-    const  val initialVotes = 2
+    const  val initialVotes = 200
 
     const  val maxVotesPerTopic = 100
     const  val minVotesPerTopic = 0
