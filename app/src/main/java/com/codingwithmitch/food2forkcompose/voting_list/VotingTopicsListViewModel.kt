@@ -15,7 +15,7 @@ import javax.inject.Inject
     class VotingTopicsListViewModel
     @Inject
     constructor(
-        //TODO private val updateList: UpdateList  RAUS !!!!!!!!
+        //private val updateList: UpdateList // injecting test todo delete
     )
      : ViewModel(){
 
