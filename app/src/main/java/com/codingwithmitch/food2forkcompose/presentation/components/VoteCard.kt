@@ -106,16 +106,16 @@ fun VoteCard(topicVote: TopicVote,
                         .fillMaxWidth()
                         .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
                     ) {
-                //Button1(topicVote = topicVote, onClick = onClick,topicVoteState)
+
                 ButtonVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged,onVote = onVote)
             }
-            /*
+
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
             ) {
-                Button1(topicVote = topicVote, onClick = onClick,topicVoteState)
-            }*/
+                ButtonUnVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged,onUnVote = onUnVote)
+            }
 
         }
     }
