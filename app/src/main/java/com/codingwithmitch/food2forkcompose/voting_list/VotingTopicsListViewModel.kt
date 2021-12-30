@@ -1,8 +1,6 @@
 package com.codingwithmitch.food2forkcompose.voting_list
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
@@ -12,36 +10,24 @@ import com.codingwithmitch.food2forkcompose.modules.voting.VotingState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-//@AndroidEntryPoint // TODO NEEDED??
+
 @HiltViewModel
     class VotingTopicsListViewModel
     @Inject
     constructor(
-        //TODO private val updateList: UpdateList
+        //TODO private val updateList: UpdateList  RAUS !!!!!!!!
     )
      : ViewModel(){
 
 
-
-
-
-
-
     val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
     var topicVoteStateChanged:MutableState<Boolean> = mutableStateOf(false)
-    val topicVoteIndex = mutableStateOf(1)
+    val topicVoteIndex = mutableStateOf(0)
 
-
-    // todo delete
-    var topics = mutableListOf(0,100)
-    var count2  = mutableStateOf(0)
-    var count:MutableState<MutableList<Int>>  = mutableStateOf(topics)
-// todo delete
 
 
     init {
-        topicVoteState.value = VotingState.topicVotes // TODO ????
-        //------ onTriggerEvent()
+        topicVoteState.value = VotingState.topicVotes
     }
 
 
@@ -53,10 +39,7 @@ import javax.inject.Inject
             is VotingListEvent.UnVoteEvent -> {
                 unVote()
             }
-
         }
-
-
     }
 
     private fun vote(){
