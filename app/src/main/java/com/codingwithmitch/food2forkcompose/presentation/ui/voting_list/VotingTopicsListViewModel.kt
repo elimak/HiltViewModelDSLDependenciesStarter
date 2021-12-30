@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.voting_list
+package com.codingwithmitch.food2forkcompose.presentation.ui.voting_list
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
