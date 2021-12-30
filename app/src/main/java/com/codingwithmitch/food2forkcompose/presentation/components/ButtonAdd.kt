@@ -15,15 +15,18 @@ import androidx.compose.ui.unit.dp
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
 @Composable
-fun Button1(topicVote: TopicVote, onClick: () -> Unit,topicVoteState: List<TopicVote>){
+fun Button1(topicVote: TopicVote, onTopicVoteIndexChanged: (Int) -> Unit,
+            onVote: () -> Unit,){
 
 
     Button(
 
         onClick = {
-            topicVoteState[topicVote.id].vote++
-           val d =  topicVoteState
-           val c=  topicVoteState
+            onTopicVoteIndexChanged(topicVote.id)
+            onVote()
+                  //topicVoteState[topicVote.id].vote++
+           //val d =  topicVoteState
+           //val c=  topicVoteState
 
         },
         // in below line we are using modifier

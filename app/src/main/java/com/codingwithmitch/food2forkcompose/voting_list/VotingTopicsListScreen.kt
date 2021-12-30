@@ -21,7 +21,7 @@ import com.codingwithmitch.food2forkcompose.presentation.components.VoteCard
 
 @Composable
 fun TopicsList(
-    viewModelTopics: VotingTopicsListViewModel //= hiltViewModel()
+    viewModel: VotingTopicsListViewModel //= hiltViewModel()
 /*
     loading: Boolean,
     recipes: List<Recipe>,
@@ -32,10 +32,12 @@ fun TopicsList(
 
      */
 ){
-    val topicVoteState  = viewModelTopics.topicVoteState.value
-    var topicVoteStateChanged  = viewModelTopics.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
+    val topicVoteState  = viewModel.topicVoteState.value
+    var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
+    var topicVoteIndex = viewModel.topicVoteIndex
+
 //////// -- testing
-    var count  = viewModelTopics.count.value
+    var count  = viewModel.count.value
     ///// -- testing
 
     // nur durch eine loading variable checkd or das !!!
@@ -49,19 +51,20 @@ fun TopicsList(
 
 //////////////----------- testing
 
-        Button(onClick = { viewModelTopics.onTriggerEvent() }) {
+        /*
+        Button(onClick = { viewModel.onTriggerEvent() }) {
 
             //Text(text = counterState.value.toString())
             //-----Text(text = count2.toString())
             Text(text = count[1].toString()) // or only count count
             //Text(text = count[1].toString())
         }
-
+*/
 
         ////////////////////////////-----
 
         // todo id  dazu //
-        var topics:  List<TopicVote> = topicVoteState
+
         /*
         var topics:  MutableList<TopicVote> = mutableListOf()
         topics.add(TopicVote(0,"a",1))
@@ -71,26 +74,32 @@ fun TopicsList(
          */
 /////////////
 
+        //onTopicVoteIndexChanged
+        //onTriggerEvent
+        //VotingListEvent.VoteEvent
+
+
+
+
 ////////////////////////////////////////////////////////
+        //var topics:  List<TopicVote> = topicVoteState
             LazyColumn{
                 itemsIndexed(
-                    items = topics
-                ) { index, topic ->
-                    /*
-                    onChangeScrollPosition(index)
-                    if ((index + 1) >= (page * PAGE_SIZE) && !loading) {
-                        onTriggerNextPage()
-                    }*/
-                    //var votes = topicVoteState[topic.id].vote
+                    items = topicVoteState//topics
+                ) { topicVoteIndex, topic ->
+
                     VoteCard(
                         topicVote = topic,
-                        onClick = {
-                            // val route = Screen.RecipeDetail.route + "/${recipe.id}"
-                            //onNavigateToRecipeDetailScreen(route)
+                        topicVoteIndex = topicVoteIndex, // index auch in topic vote // TODO
+                        onTopicVoteIndexChanged = {
+                            viewModel.onTopicVoteIndexChanged(topicVoteIndex)
                         },
-                        topicVoteState = topicVoteState,
-                        //votes = votes
-                        index = index
+                        onVote = {
+                            viewModel.onTriggerEvent(VotingListEvent.VoteEvent)
+                        },
+                        onUnVote = {
+                            viewModel.onTriggerEvent(VotingListEvent.UnVoteEvent)
+                        }
 
                     )
 

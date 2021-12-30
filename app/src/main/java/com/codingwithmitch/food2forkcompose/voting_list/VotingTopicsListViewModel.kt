@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
+import com.codingwithmitch.food2forkcompose.modules.voting.Voting
 import com.codingwithmitch.food2forkcompose.modules.voting.VotingState
 
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,99 +24,57 @@ import javax.inject.Inject
 
 
 
-/*
-    @HiltViewModel
-    class RecipeListViewModel
-    @Inject
-    constructor(
-        private val searchRecipes: SearchRecipes,
-        private val restoreRecipes: RestoreRecipes,
-        private val connectivityManager: ConnectivityManager,
-        private @Named("auth_token") val token: String,
-        private val savedStateHandle: SavedStateHandle,
-    ) : ViewModel() {
-*/
 
 
 
-
-
-
-        // TODO have private _topicVoteState
-    //private val _topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
-    //val topicVoteState: State<List<TopicVote>> = _topicVoteState
-
-    //val topicVoteState: State<List<TopicVote>> = mutableStateOf(ArrayList())
-
-    //val recipe: MutableState<Recipe?> = mutableStateOf(null)
-
-          //--->var topicVoteState: List<TopicVote> = mutableStateOf(ArrayList())
-              //  val loading = mutableStateOf(false)
-
-
-
-                   val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
+    val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
     var topicVoteStateChanged:MutableState<Boolean> = mutableStateOf(false)
+    val topicVoteIndex = mutableStateOf(1)
 
+
+    // todo delete
     var topics = mutableListOf(0,100)
     var count2  = mutableStateOf(0)
-
-
-
-    //val favourites by mutableStateListOf<Track>()
     var count:MutableState<MutableList<Int>>  = mutableStateOf(topics)
-   //---- var count = mutableStateListOf(topics)
-
-    //val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
+// todo delete
 
 
     init {
-        /*
-        var topics:  MutableList<TopicVote> = mutableListOf()
-        topics.add(TopicVote(0,"a",1))
-        topics.add(TopicVote(1,"b",1))
-        topics.add(TopicVote(2,"c",1))
-
-        loading.value = true
-
-        //topicVoteState.value = topics//
-         */
-        topicVoteState.value = VotingState.topicVotes // TODO
-        onTriggerEvent()
-    }
-
-    // todo add events for usecases
-    //fun onTriggerEvent(event: TopicVoteListEvent){
-    fun onTriggerEvent(){
-        newUpdateList()
-        count2.value++
-        count.value[1] = count.value[1] +1//count[1] +1
-        topicVoteStateChanged.value = !topicVoteStateChanged.value // TODO not optimal
-        //count[1] = (count[1] +1) as MutableList<Int>
-
-       var stuff = "fdf"
-        /*
-        var topics = mutableListOf(count.value[0],count.value[1])
-        count.value = topics
-    */
+        topicVoteState.value = VotingState.topicVotes // TODO ????
+        //------ onTriggerEvent()
     }
 
 
+    fun onTriggerEvent(event: VotingListEvent){
+        when(event){
+            is VotingListEvent.VoteEvent -> {
+                vote()
+            }
+            is VotingListEvent.UnVoteEvent -> {
+                unVote()
+            }
 
-    private fun newUpdateList(){
-        //---updateList.execute()
+        }
+
+
     }
 
-
-    // TODO DELETE
-    fun updateText() {
-      //_state.value = state.value.copy(text = "dd")
-         /*
-        _state.value = state.value.copy(
-                    isOrderSectionVisible = !state.value.isOrderSectionVisible
-                )
-        */
+    private fun vote(){
+        topicVoteStateChanged.value = !topicVoteStateChanged.value // TODO not optimal but needed to cause a composable redraw as topicVoteSTate does not cause a redrwa
+        Voting.vote(topicVoteState.value[topicVoteIndex.value])
     }
+    private fun unVote(){
+        topicVoteStateChanged.value = !topicVoteStateChanged.value // TODO not optimal but needed to cause a composable redraw as topicVoteSTate does not cause a redrwa
+        Voting.deVote(topicVoteState.value[topicVoteIndex.value])
+    }
+
+    fun onTopicVoteIndexChanged(index: Int) {
+        setTopicVoteIndex(index)
+    }
+    private fun setTopicVoteIndex(index: Int){
+        topicVoteIndex.value = index
+    }
+
 
 
 }
