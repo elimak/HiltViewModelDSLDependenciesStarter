@@ -12,7 +12,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.codingwithmitch.food2forkcompose.data.voting.VotingInit
 import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
-import com.codingwithmitch.food2forkcompose.voting_list.TopicsList
+import com.codingwithmitch.food2forkcompose.voting_list.VotingTopicsListScreen
 import com.codingwithmitch.food2forkcompose.voting_list.VotingTopicsListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(){
 
           val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
 
-          TopicsList(viewModel)
+          VotingTopicsListScreen(viewModel)
           }
           composable(
             route = Screen.RecipeDetail.route + "/{recipeId}",

@@ -10,25 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 
-/*
-topicVote = topic,
 
-topicVoteIndex = topicVoteIndex,
-onTopicVoteIndexChanged = viewModel::onTopicVoteIndexChanged,
-onVote = {
-    viewModel.onTriggerEvent(VotingListEvent.VoteEvent)
-},
-onUnVote = {
-*/
-
-@Composable // TODO topicVote raus und nur topicvote nhemen??
+@Composable
 fun VoteCard(topicVote: TopicVote,
-             topicVoteIndex:Int,
              onTopicVoteIndexChanged: () -> Unit,
              onVote: () -> Unit,
              onUnVote: () -> Unit
 ) {
-    //var typ = topicVoteState;//[topicVote.id].vote.toString()
+
     Card(
         shape = MaterialTheme.shapes.small,
         modifier = Modifier
@@ -37,18 +26,11 @@ fun VoteCard(topicVote: TopicVote,
                 top = 6.dp,
             )
             .fillMaxWidth(),
-            //.clickable(onClick = onClick),
+
         elevation = 8.dp,
     ) {
         Column {
-            /*CoilImage(
-                data = recipe.featuredImage,
-                contentDescription = recipe.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(225.dp),
-                contentScale = ContentScale.Crop,
-            )*/
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -64,60 +46,35 @@ fun VoteCard(topicVote: TopicVote,
 
                 Text(
                     text = topicVote.vote.toString(),
-                    //text = topicVoteState[index].vote.toString(),
-                    //text= votes.toString(),//typ[topicVote.id].vote.toString(),
-                    //text = topicVoteState[topicVote.id].vote.toString(),//topicVote.vote.toString() ,
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
                         .wrapContentWidth(Alignment.Start),
                     style = MaterialTheme.typography.h3
                 )
+            }
 
-
-                //Button1()
-
-                /*Button(onClick = { /*TODO*/ }) {
-                    
-                }*/
-                //val rank = recipe.rating.toString()
-                /*Text(
-                    text = rank,
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentWidth(Alignment.End)
-                        .align(Alignment.CenterVertically),
-                    style = MaterialTheme.typography.h5
-                )*/
-            }
+                        .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
+                ) {
 
-            /*
-             topicVote = topic,
-                        topicVoteIndex = topicVoteIndex, // index auch in topic vote // TODO
-                        onTopicVoteIndexChanged = {
-                            viewModel.onTopicVoteIndexChanged(topicVoteIndex)
-                        },
-                        onVote = {
-                            viewModel.onTriggerEvent(VotingListEvent.VoteEvent)
-                        },
-             */
+                    ButtonVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged, onVote = onVote)
+                }
 
-
-            Row(modifier = Modifier
+                Row(
+                    modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
-                    ) {
+                ) {
+                    ButtonUnVote(
+                        onTopicVoteIndexChanged = onTopicVoteIndexChanged,
+                        onUnVote = onUnVote
+                    )
+                }
 
-                ButtonVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged,onVote = onVote)
             }
-
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
-            ) {
-                ButtonUnVote(onTopicVoteIndexChanged = onTopicVoteIndexChanged,onUnVote = onUnVote)
-            }
-
         }
-    }
+
 
 }
