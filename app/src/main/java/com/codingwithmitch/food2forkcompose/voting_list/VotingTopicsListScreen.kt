@@ -48,6 +48,7 @@ fun TopicsList(
     ) {
 
 //////////////----------- testing
+
         Button(onClick = { viewModelTopics.onTriggerEvent() }) {
 
             //Text(text = counterState.value.toString())
@@ -70,19 +71,19 @@ fun TopicsList(
          */
 /////////////
 
-/*
+////////////////////////////////////////////////////////
             LazyColumn{
                 itemsIndexed(
                     items = topics
-                ) { index, recipe ->
+                ) { index, topic ->
                     /*
                     onChangeScrollPosition(index)
                     if ((index + 1) >= (page * PAGE_SIZE) && !loading) {
                         onTriggerNextPage()
                     }*/
-                    var votes = topicVoteState[recipe.id].vote
+                    var votes = topicVoteState[topic.id].vote
                     VoteCard(
-                        topicVote = recipe,
+                        topicVote = topic,
                         onClick = {
                             // val route = Screen.RecipeDetail.route + "/${recipe.id}"
                             //onNavigateToRecipeDetailScreen(route)
@@ -94,7 +95,8 @@ fun TopicsList(
 
 
                 }
-            }*/
+            }
+        ////////////////////////////////////
         }
 
 }

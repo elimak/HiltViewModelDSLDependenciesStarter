@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity(){
 
           val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
 
-          //val viewModel: Greetings1ViewModel = viewModel("RecipeListViewModel", factory)
-          //Greeting1(name = "1111",viewModel = viewModel)
           TopicsList(viewModel)
           }
           composable(
