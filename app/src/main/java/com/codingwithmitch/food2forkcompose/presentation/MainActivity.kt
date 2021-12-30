@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity(){
             VotingTopicsListScreen(viewModel)
             }
 
+          /////////////////////////   // todo just template for next Screen
             composable(
             route = Screen.RecipeDetail.route + "/{recipeId}",
             arguments = listOf(navArgument("recipeId") {
@@ -49,8 +50,10 @@ class MainActivity : AppCompatActivity(){
           ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
 
-
           }
+          ////////////////////////////
+
+          
         }
 
     }
