@@ -34,22 +34,21 @@ class MainActivity : AppCompatActivity(){
       val navController = rememberNavController()
         NavHost(navController = navController, startDestination = Screen.RecipeList.route) {
 
-      composable(route = Screen.RecipeList.route) { navBackStackEntry ->
+            composable(
+          route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
+            val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
+            VotingTopicsListScreen(viewModel)
+            }
 
-
-          val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
-
-          VotingTopicsListScreen(viewModel)
-          }
-          composable(
+            composable(
             route = Screen.RecipeDetail.route + "/{recipeId}",
             arguments = listOf(navArgument("recipeId") {
               type = NavType.IntType
             })
           ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            Greeting2(name = "2222")
+
 
           }
         }
