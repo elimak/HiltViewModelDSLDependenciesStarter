@@ -36,20 +36,32 @@ fun VoteCard(topicVote: TopicVote,
                     .fillMaxWidth()
                     .padding(top = 12.dp, bottom = 12.dp, start = 8.dp, end = 8.dp)
             ) {
+
                 Text(
                     text = topicVote.text,
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
                         .wrapContentWidth(Alignment.Start),
-                    style = MaterialTheme.typography.h3
+                    style = MaterialTheme.typography.h5
                 )
 
+
+                // TODO add votes:
+/*
+                Text(
+                    text = "Votes: ",
+                    modifier = Modifier
+                        .fillMaxWidth(0.85f)
+                        .wrapContentWidth(Alignment.CenterHorizontally),
+                    style = MaterialTheme.typography.h5
+                )
+*/
                 Text(
                     text = topicVote.vote.toString(),
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
-                        .wrapContentWidth(Alignment.Start),
-                    style = MaterialTheme.typography.h3
+                        .wrapContentWidth(Alignment.End),
+                    style = MaterialTheme.typography.h5
                 )
             }
 

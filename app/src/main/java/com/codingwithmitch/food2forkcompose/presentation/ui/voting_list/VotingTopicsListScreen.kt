@@ -5,8 +5,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingConstants.initialVotes
+import com.codingwithmitch.food2forkcompose.modules.voting.VotingLimitsState
 import com.codingwithmitch.food2forkcompose.presentation.components.VoteCard
 
 @Composable
@@ -27,6 +31,20 @@ fun VotingTopicsListScreen(
                     items = topicVoteState
                 ) { topicVoteIndex, topic ->
 
+                    Text(
+                        text = "Voting Points: ",
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                            .wrapContentWidth(Alignment.Start),
+                        style = MaterialTheme.typography.h5
+                    )
+                    Text(
+                        text =  VotingLimitsState.votingPointsLeft.toString(),
+                        modifier = Modifier
+                            .fillMaxWidth(0.85f)
+                            .wrapContentWidth(Alignment.Start),
+                        style = MaterialTheme.typography.h5
+                    )
                     VoteCard(
                         topicVote = topic,
                         onTopicVoteIndexChanged = {
