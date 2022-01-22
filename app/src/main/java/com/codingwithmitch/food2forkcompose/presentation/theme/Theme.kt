@@ -1,7 +1,17 @@
 package com.codingwithmitch.food2forkcompose.presentation.theme
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.codingwithmitch.food2forkcompose.presentation.components.DefaultSnackbar
+import java.util.*
 
 private val LightThemeColors = lightColors(
   primary = Blue600,
@@ -31,7 +41,41 @@ private val DarkThemeColors = darkColors(
   onSurface = Color.White,
 )
 
+@ExperimentalComposeUiApi
+@ExperimentalMaterialApi
+@Composable
+fun AppTheme(
+  darkTheme: Boolean,
 
+  scaffoldState: ScaffoldState,
+  content: @Composable () -> Unit,
+) {
+  MaterialTheme(
+    colors = if (darkTheme) DarkThemeColors else LightThemeColors,
+    typography = QuickSandTypography,
+    shapes = AppShapes
+  ){
+    Box(
+      modifier = Modifier
+        .fillMaxSize()
+        .background(color = if (!darkTheme) Grey1 else Color.Black)
+    ){
+      Column{
+
+        content()
+      }
+
+      DefaultSnackbar(
+        snackbarHostState = scaffoldState.snackbarHostState,
+        onDismiss = {
+          scaffoldState.snackbarHostState.currentSnackbarData?.dismiss()
+        },
+        modifier = Modifier.align(Alignment.BottomCenter)
+      )
+
+    }
+  }
+}
 
 
 

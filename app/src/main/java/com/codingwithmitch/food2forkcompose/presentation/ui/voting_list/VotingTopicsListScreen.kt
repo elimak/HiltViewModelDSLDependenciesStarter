@@ -1,64 +1,58 @@
 package com.codingwithmitch.food2forkcompose.presentation.ui.voting_list
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import com.codingwithmitch.food2forkcompose.modules.voting.VotingConstants.initialVotes
-import com.codingwithmitch.food2forkcompose.modules.voting.VotingLimitsState
-import com.codingwithmitch.food2forkcompose.presentation.components.VoteCard
+import androidx.compose.ui.ExperimentalComposeUiApi
+import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalComposeUiApi
+@ExperimentalCoroutinesApi
+@ExperimentalMaterialApi
 @Composable
 fun VotingTopicsListScreen(
-    viewModel: VotingTopicsListViewModel
+    viewModel: VotingTopicsListViewModel,
+    isDarkTheme: Boolean,
+    onToggleTheme: () -> Unit,
+
+
 ){
     val topicVoteState  = viewModel.topicVoteState.value
     var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
     var topicVoteIndex = viewModel.topicVoteIndex
+    val scaffoldState = rememberScaffoldState()
 
+    AppTheme(
 
-    Box(modifier = Modifier
-        .background(color = MaterialTheme.colors.surface)
+        scaffoldState = scaffoldState,
+        darkTheme = isDarkTheme,
+
     ) {
+        Scaffold(
 
-            LazyColumn{
-                itemsIndexed(
-                    items = topicVoteState
-                ) { topicVoteIndex, topic ->
-
-                    Text(
-                        text = "Voting Points: ",
-                        modifier = Modifier
-                            .fillMaxWidth(0.85f)
-                            .wrapContentWidth(Alignment.Start),
-                        style = MaterialTheme.typography.h5
-                    )
-                    Text(
-                        text =  VotingLimitsState.votingPointsLeft.toString(),
-                        modifier = Modifier
-                            .fillMaxWidth(0.85f)
-                            .wrapContentWidth(Alignment.Start),
-                        style = MaterialTheme.typography.h5
-                    )
-                    VoteCard(
-                        topicVote = topic,
-                        onTopicVoteIndexChanged = {
-                            viewModel.onTopicVoteIndexChanged(topicVoteIndex)
-                        },
-                        onVote = {
-                            viewModel.onTriggerEvent(VotingListEvent.VoteEvent)
-                        },
-                        onUnVote = {
-                            viewModel.onTriggerEvent(VotingListEvent.UnVoteEvent)
-                        }
-                    )
-                }
-            }
+            /*topBar = {
+                SearchAppBar(
+                    query = query,
+                    onQueryChanged = viewModel::onQueryChanged,
+                    onExecuteSearch = {
+                        viewModel.onTriggerEvent(RecipeListEvent.NewSearchEvent)
+                    },
+                    categories = getAllFoodCategories(),
+                    selectedCategory = selectedCategory,
+                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
+                    onToggleTheme = { onToggleTheme() }
+                )
+            },*/
+            scaffoldState = scaffoldState,
+            snackbarHost = {
+                scaffoldState.snackbarHostState
+            },
+        ) {
+            VotingTopicsList(
+                viewModel
+            )
         }
-
+    }
 }

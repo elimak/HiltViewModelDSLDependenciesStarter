@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(){
           route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
             val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
-            VotingTopicsListScreen(viewModel)
+            VotingTopicsListScreen(viewModel= viewModel,isDarkTheme=true, onToggleTheme = {})
             }
 
           /////////////////////////   // todo just template for next Screen
