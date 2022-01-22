@@ -5,6 +5,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
+import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -32,19 +33,15 @@ fun VotingTopicsListScreen(
     ) {
         Scaffold(
 
-            /*topBar = {
-                SearchAppBar(
-                    query = query,
-                    onQueryChanged = viewModel::onQueryChanged,
-                    onExecuteSearch = {
-                        viewModel.onTriggerEvent(RecipeListEvent.NewSearchEvent)
-                    },
-                    categories = getAllFoodCategories(),
+            topBar = {
+                AppBar(
+
+                    /*categories = getAllFoodCategories(),
                     selectedCategory = selectedCategory,
-                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
+                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/
                     onToggleTheme = { onToggleTheme() }
                 )
-            },*/
+            },
             scaffoldState = scaffoldState,
             snackbarHost = {
                 scaffoldState.snackbarHostState

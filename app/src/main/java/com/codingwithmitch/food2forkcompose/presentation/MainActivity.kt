@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
@@ -22,6 +23,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
+  //private var isDark = true
+  private var isDark = mutableStateOf(false)
 
 
   @ExperimentalComposeUiApi
@@ -38,9 +41,9 @@ class MainActivity : AppCompatActivity(){
           route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
             val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
-            VotingTopicsListScreen(viewModel= viewModel,isDarkTheme=true, onToggleTheme = {})
+            VotingTopicsListScreen(viewModel= viewModel,isDarkTheme=isDark.value, onToggleTheme = {isDark.value = !isDark.value})
             }
-
+         // settingsDataStore.isDark.value
           /////////////////////////   // todo just template for next Screen
             composable(
             route = Screen.RecipeDetail.route + "/{recipeId}",
