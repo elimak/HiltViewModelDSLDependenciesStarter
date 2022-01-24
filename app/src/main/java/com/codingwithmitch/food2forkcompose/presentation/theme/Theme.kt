@@ -68,7 +68,7 @@ fun AppTheme(
 
         content()
       }
-
+// TODO implement SnackbarController  to not queue the snackbars but cancel them
       DefaultSnackbar(
         snackbarHostState = scaffoldState.snackbarHostState,
         onDismiss = {
