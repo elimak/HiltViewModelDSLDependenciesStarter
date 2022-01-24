@@ -54,7 +54,6 @@ fun AppTheme(
   content: @Composable () -> Unit,
 ) {
 
-  val coroutineScope = rememberCoroutineScope() // NEW TEST
   MaterialTheme(
     colors = if (darkTheme) DarkThemeColors else LightThemeColors,
     typography = QuickSandTypography,
@@ -69,26 +68,6 @@ fun AppTheme(
 
         content()
       }
-
-      /////////////////////////////////////////////////// NEW
-      Button(
-        onClick = {
-          coroutineScope.launch { // using the `coroutineScope` to `launch` showing the snackbar
-            // taking the `snackbarHostState` from the attached `scaffoldState`
-            val snackbarResult = scaffoldState.snackbarHostState.showSnackbar(
-              message = "This is your message",
-              actionLabel = "Do something."
-            )
-            when (snackbarResult) {
-              SnackbarResult.Dismissed -> Log.d("SnackbarDemo", "Dismissed")
-              SnackbarResult.ActionPerformed -> Log.d("SnackbarDemo", "Snackbar's button clicked")
-            }
-          }
-        }
-      ) {
-        Text(text = "A button that shows a Snackbar")
-      }
-    //}/////////////////////////////////////////////   NEW
 
       DefaultSnackbar(
         snackbarHostState = scaffoldState.snackbarHostState,

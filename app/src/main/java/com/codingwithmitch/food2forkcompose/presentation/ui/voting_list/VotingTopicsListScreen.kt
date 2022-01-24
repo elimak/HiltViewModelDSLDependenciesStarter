@@ -1,13 +1,14 @@
 package com.codingwithmitch.food2forkcompose.presentation.ui.voting_list
 
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Scaffold
-import androidx.compose.material.rememberScaffoldState
+import android.util.Log
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 
 @ExperimentalComposeUiApi
 @ExperimentalCoroutinesApi
@@ -47,8 +48,21 @@ fun VotingTopicsListScreen(
                 scaffoldState.snackbarHostState
             },
         ) {
+
+            val coroutineScope = rememberCoroutineScope()
             VotingTopicsList(
-                viewModel
+                viewModel = viewModel,
+                onVoteSnackBar = {
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(message = "+")
+                    }
+                },
+                onUnVoteSnackBar = {
+                    coroutineScope.launch {
+                        scaffoldState.snackbarHostState.showSnackbar(message = "-")
+                    }
+                }
+
             )
         }
     }

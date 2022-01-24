@@ -15,7 +15,9 @@ import com.codingwithmitch.food2forkcompose.presentation.components.VoteCard
 
 @Composable
 fun VotingTopicsList(
-    viewModel: VotingTopicsListViewModel
+    viewModel: VotingTopicsListViewModel,
+    onVoteSnackBar: () -> Unit,
+    onUnVoteSnackBar: () -> Unit
 ){
     val topicVoteState  = viewModel.topicVoteState.value
     var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
@@ -52,9 +54,11 @@ fun VotingTopicsList(
                         },
                         onVote = {
                             viewModel.onTriggerEvent(VotingListEvent.VoteEvent)
+                            onVoteSnackBar()
                         },
                         onUnVote = {
                             viewModel.onTriggerEvent(VotingListEvent.UnVoteEvent)
+                            onUnVoteSnackBar()
                         }
                     )
                 }
