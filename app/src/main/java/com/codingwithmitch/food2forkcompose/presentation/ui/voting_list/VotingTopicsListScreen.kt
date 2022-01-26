@@ -7,6 +7,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
+import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -36,10 +37,11 @@ fun VotingTopicsListScreen(
             topBar = {
                 AppBar(
 
-                    /*categories = getAllFoodCategories(),
-                    selectedCategory = selectedCategory,
-                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/
+                    menuCategories = getAllMenus(),
+                   // selectedCategory = selectedCategory,
+                   // onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/
                     onToggleTheme = { onToggleTheme() }
+
                 )
             },
             scaffoldState = scaffoldState,

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
+import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus
 import com.codingwithmitch.food2forkcompose.presentation.ui.voting_list.VotingTopicsList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -32,7 +33,7 @@ fun TopicGroupsListScreen(viewModel: TopicGroupsListViewModel,
 
             topBar = {
                 AppBar(
-
+                    menuCategories = getAllMenus(),
                     /*categories = getAllFoodCategories(),
                     selectedCategory = selectedCategory,
                     onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/

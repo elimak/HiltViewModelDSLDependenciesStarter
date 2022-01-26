@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -23,16 +24,17 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.codingwithmitch.food2forkcompose.presentation.ui.MenuCategory
 
 @ExperimentalComposeUiApi
 @Composable
 fun AppBar(
-
+    menuCategories: List<MenuCategory>,
     //onSelectedCategoryChanged: (String) -> Unit,
     onToggleTheme: () -> Unit,
 ) {
-    val focusManager = LocalFocusManager.current
-    val keyboardController = LocalSoftwareKeyboardController.current
+    //val focusManager = LocalFocusManager.current
+   // val keyboardController = LocalSoftwareKeyboardController.current
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
@@ -59,6 +61,26 @@ fun AppBar(
                     ) {
                         Icon(Icons.Filled.MoreVert, contentDescription = "Toggle Dark/Light Theme")
                     }
+                }
+            }// end row
+            val scrollState = rememberLazyListState()
+            LazyRow(
+                modifier = Modifier
+                    .padding(start = 8.dp, bottom = 8.dp),
+                state = scrollState,
+            ) {
+                items(menuCategories) {
+                    MenuCategorieChip1(
+                        menuCategories = it.value,
+                        //isSelected = selectedCategory == it,
+                       // onSelectedCategoryChanged = {
+                         //   onSelectedCategoryChanged(it)
+                        //},
+                        /*
+                        onExecuteSearch = {
+                            onExecuteSearch()
+                        },*/
+                    )
                 }
             }
            /* val scrollState = rememberLazyListState()
