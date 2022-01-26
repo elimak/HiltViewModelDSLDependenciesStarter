@@ -15,6 +15,8 @@ import com.codingwithmitch.food2forkcompose.data.voting.VotingInit
 import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
 import com.codingwithmitch.food2forkcompose.presentation.ui.voting_list.VotingTopicsListScreen
 import com.codingwithmitch.food2forkcompose.presentation.ui.voting_list.VotingTopicsListViewModel
+import com.codingwithmitch.food2forkcompose.presentation.ui.voting_topic_groups.TopicGroupsListScreen
+import com.codingwithmitch.food2forkcompose.presentation.ui.voting_topic_groups.TopicGroupsListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -38,10 +40,18 @@ class MainActivity : AppCompatActivity(){
         NavHost(navController = navController, startDestination = Screen.RecipeList.route) {
 
             composable(
+              //( TODO change naming Screen.RecipeList
           route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
-            VotingTopicsListScreen(viewModel= viewModel,isDarkTheme=isDark.value, onToggleTheme = {isDark.value = !isDark.value})
+
+              // NEW
+              val viewModel: TopicGroupsListViewModel = viewModel("TopicGroupsListViewModel", factory)
+              TopicGroupsListScreen(viewModel= viewModel,isDarkTheme=isDark.value, onToggleTheme = {isDark.value = !isDark.value})
+              // NEW
+
+              // TODO old screen working
+            //val viewModel: VotingTopicsListViewModel = viewModel("VotingTopicsListViewModel", factory)
+            //VotingTopicsListScreen(viewModel= viewModel,isDarkTheme=isDark.value, onToggleTheme = {isDark.value = !isDark.value})
             }
          // settingsDataStore.isDark.value
           /////////////////////////   // todo just template for next Screen

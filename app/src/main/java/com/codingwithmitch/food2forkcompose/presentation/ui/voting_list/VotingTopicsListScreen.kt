@@ -17,8 +17,7 @@ import kotlinx.coroutines.launch
 fun VotingTopicsListScreen(
     viewModel: VotingTopicsListViewModel,
     isDarkTheme: Boolean,
-    onToggleTheme: () -> Unit,
-
+    onToggleTheme: () -> Unit
 
 ){
     val topicVoteState  = viewModel.topicVoteState.value
