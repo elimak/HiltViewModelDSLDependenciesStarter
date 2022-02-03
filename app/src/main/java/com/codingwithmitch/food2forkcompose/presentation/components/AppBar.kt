@@ -7,34 +7,26 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.codingwithmitch.food2forkcompose.presentation.ui.MenuCategory
+import com.codingwithmitch.food2forkcompose.presentation.ui.MenuCategory1
 
 @ExperimentalComposeUiApi
 @Composable
 fun AppBar(
-    menuCategories: List<MenuCategory>,
-    //onSelectedCategoryChanged: (String) -> Unit,
+    menuCategories: List<MenuCategory1>,
+    selectedCategory: MenuCategory1?,
+    onSelectedCategoryChanged: (String) -> Unit,
     onToggleTheme: () -> Unit,
 ) {
-    //val focusManager = LocalFocusManager.current
-   // val keyboardController = LocalSoftwareKeyboardController.current
+
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
@@ -71,37 +63,17 @@ fun AppBar(
             ) {
                 items(menuCategories) {
                     MenuCategorieChip1(
-                        menuCategories = it.value,
-                        //isSelected = selectedCategory == it,
-                       // onSelectedCategoryChanged = {
-                         //   onSelectedCategoryChanged(it)
-                        //},
-                        /*
-                        onExecuteSearch = {
-                            onExecuteSearch()
-                        },*/
+                        category = it.value,
+                        isSelected = selectedCategory == it,
+                       onSelectedCategoryChanged = {
+                         onSelectedCategoryChanged(it)
+                        },
+
+
                     )
                 }
             }
-           /* val scrollState = rememberLazyListState()
-            LazyRow(
-                modifier = Modifier
-                    .padding(start = 8.dp, bottom = 8.dp),
-                state = scrollState,
-            ) {
-                items(categories) {
-                    FoodCategoryChip(
-                        category = it.value,
-                        isSelected = selectedCategory == it,
-                        onSelectedCategoryChanged = {
-                            onSelectedCategoryChanged(it)
-                        },
-                        onExecuteSearch = {
-                            onExecuteSearch()
-                        },
-                    )
-                }
-            }*/
+
         }
     }
 }

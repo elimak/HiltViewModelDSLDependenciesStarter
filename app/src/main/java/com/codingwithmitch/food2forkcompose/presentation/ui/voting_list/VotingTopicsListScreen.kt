@@ -7,7 +7,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
-import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus
+import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus1
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -23,6 +23,7 @@ fun VotingTopicsListScreen(
 ){
     val topicVoteState  = viewModel.topicVoteState.value
     var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
+    val selectedCategory = viewModel.selectedCategory.value
     var topicVoteIndex = viewModel.topicVoteIndex
     val scaffoldState = rememberScaffoldState()
 
@@ -37,9 +38,9 @@ fun VotingTopicsListScreen(
             topBar = {
                 AppBar(
 
-                    menuCategories = getAllMenus(),
-                   // selectedCategory = selectedCategory,
-                   // onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/
+                    menuCategories = getAllMenus1(),
+                   selectedCategory = selectedCategory,
+                   onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
                     onToggleTheme = { onToggleTheme() }
 
                 )

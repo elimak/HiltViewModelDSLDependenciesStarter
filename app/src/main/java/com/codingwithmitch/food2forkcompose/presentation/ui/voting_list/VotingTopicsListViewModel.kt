@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.codingwithmitch.food2forkcompose.data.voting.TopicVote
 import com.codingwithmitch.food2forkcompose.modules.voting.Voting
 import com.codingwithmitch.food2forkcompose.modules.voting.VotingState
+import com.codingwithmitch.food2forkcompose.presentation.ui.MenuCategory1
+import com.codingwithmitch.food2forkcompose.presentation.ui.getMenuCategory1
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,6 +21,7 @@ import javax.inject.Inject
     )
      : ViewModel(){
 
+    val selectedCategory: MutableState<MenuCategory1?> = mutableStateOf(null)
 
     val topicVoteState: MutableState<List<TopicVote>> = mutableStateOf(ArrayList())
     var topicVoteStateChanged:MutableState<Boolean> = mutableStateOf(false)
@@ -28,6 +31,17 @@ import javax.inject.Inject
 
     init {
         topicVoteState.value = VotingState.topicVotes
+    }
+
+
+    fun onSelectedCategoryChanged(category:String){
+        val newCategory = getMenuCategory1(category)
+        setSelectedCategory(newCategory)
+    }
+
+    private fun setSelectedCategory(category: MenuCategory1?){
+        selectedCategory.value = category
+
     }
 
 

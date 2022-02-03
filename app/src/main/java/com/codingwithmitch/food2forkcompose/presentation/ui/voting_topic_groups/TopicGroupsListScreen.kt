@@ -7,8 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import com.codingwithmitch.food2forkcompose.presentation.components.AppBar
 import com.codingwithmitch.food2forkcompose.presentation.theme.AppTheme
-import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus
-import com.codingwithmitch.food2forkcompose.presentation.ui.voting_list.VotingTopicsList
+import com.codingwithmitch.food2forkcompose.presentation.ui.getAllMenus1
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalComposeUiApi
@@ -20,6 +19,7 @@ fun TopicGroupsListScreen(viewModel: TopicGroupsListViewModel,
                           onToggleTheme: () -> Unit){
 
     val topicGroupsState  = viewModel.topicGroupsState.value
+    val selectedCategory = viewModel.selectedCategory.value
 
     val scaffoldState = rememberScaffoldState()
 
@@ -33,10 +33,9 @@ fun TopicGroupsListScreen(viewModel: TopicGroupsListViewModel,
 
             topBar = {
                 AppBar(
-                    menuCategories = getAllMenus(),
-                    /*categories = getAllFoodCategories(),
+                    menuCategories = getAllMenus1(),
                     selectedCategory = selectedCategory,
-                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,*/
+                    onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
                     onToggleTheme = { onToggleTheme() }
                 )
             },

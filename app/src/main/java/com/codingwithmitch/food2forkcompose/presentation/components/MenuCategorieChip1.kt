@@ -15,30 +15,30 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun MenuCategorieChip1(
-    menuCategories: String,
+    category: String,
     isSelected: Boolean = false,
-    //onSelectedCategoryChanged: (String) -> Unit,
-    //onExecuteSearch: () -> Unit,
+    onSelectedCategoryChanged: (String) -> Unit,
+
 ){
     Surface(
         modifier = Modifier.padding(end = 8.dp),
         elevation = 8.dp,
         shape = MaterialTheme.shapes.medium,
-      //  color = if(isSelected) Color.LightGray else MaterialTheme.colors.primary
+        color = if(isSelected) Color.LightGray else MaterialTheme.colors.primary
     ) {
         Row(modifier = Modifier
             .toggleable(
                 value = isSelected,
                onValueChange = {
-                   //onSelectedCategoryChanged(category)
-                   //onExecuteSearch()
+                   onSelectedCategoryChanged(category)
+
                 }
             )
         ) {
             Text(
-                text = menuCategories,
+                text = category,
                 style = MaterialTheme.typography.body2,
-                color = Color.White,
+                color = Color.Green,//White,
                 modifier = Modifier.padding(8.dp)
             )
         }
