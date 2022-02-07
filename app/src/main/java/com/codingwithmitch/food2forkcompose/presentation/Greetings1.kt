@@ -12,19 +12,23 @@ import com.codingwithmitch.food2forkcompose.presentation.ui.Greetings1ViewModel
 
 @Composable
 fun Greeting1(name: String, viewModel: Greetings1ViewModel) {
-    Text(text = "Hellooooooooo1 $name!")
+    val query = viewModel.query.value
+
+
+    Text(text = "Hellooooooooo1 +$query+ $name!")
     Button(
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-        onClick = {}//negativeAction.onNegativeAction
+        onClick = {viewModel.changeQuerry()}//negativeAction.onNegativeAction
     ) {
         Text(text = "Button  1")
     }
+    /*
     Button(
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
         onClick = {}//negativeAction.onNegativeAction
     ) {
         Text(text = "Button 2")
-    }
+    }*/
 }

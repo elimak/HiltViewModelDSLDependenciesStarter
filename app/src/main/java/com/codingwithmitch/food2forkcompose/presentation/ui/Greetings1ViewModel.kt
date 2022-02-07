@@ -1,6 +1,7 @@
 package com.codingwithmitch.food2forkcompose.presentation.ui
 
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,5 +18,10 @@ constructor(
     //private val connectivityManager: ConnectivityManager,
 
 ) : ViewModel() {
+
+    fun changeQuerry(){
+        query.value = "fsfgggg"
+    }
+    val query = mutableStateOf("123u")
 
 }
