@@ -11,6 +11,9 @@ object AndroidX {
   const val nav_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_component}"
   const val nav_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.nav_component}"
 
+
+  //implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+  const val compose_tooling_preview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
   const val compose_ui = "androidx.compose.ui:ui:${Versions.compose}"
   const val compose_foundation = "androidx.compose.foundation:foundation:${Versions.compose}"
   const val compose_material = "androidx.compose.material:material:${Versions.compose}"
