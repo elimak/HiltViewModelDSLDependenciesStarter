@@ -23,48 +23,45 @@ fun testi(){
 
 @Composable
 fun Greeting1(name: String, viewModel: Greetings1ViewModel) {
-    val query = viewModel.query.value
-    //horizontalAlignment = Alignment.End
-    //modifier = Modifier.fillMaxSize(),
-    //verticalArrangement = Arrangement.Bottom
+    val currentPictureIndex = viewModel.currentPictureIndex.value
+    val picturesState  = viewModel.picturesState.value
+   // var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
 
+    testi()
     Column (modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom
         ) {
-
-        //Text(text = "Hellooooooooo1 +$query+ $name!")
+        var pictureName = picturesState[currentPictureIndex].link
+        Text(text = "$pictureName")
 
         Row(
-            horizontalArrangement = Arrangement.End,
-            //horizontalArrangement = Arrangement.SpaceAround,
+            horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
                 .background(MaterialTheme.colors.onPrimary)
                 .padding(10.dp)
         ) {
-            Button(
-                modifier = Modifier.padding(end = 8.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-                onClick = { viewModel.changeQuerry() }//negativeAction.onNegativeAction
-            ) {
-                Text(text = "Button  1")
+            if(currentPictureIndex !==0) {
+                Button(
+                    modifier = Modifier.padding(end = 8.dp),
+                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
+                    onClick = { viewModel.previousPicture() }
+                ) {
+                    Text(text = "prev")
+                }
             }
+            if(currentPictureIndex < picturesState.size-1){
             Button(
                 modifier = Modifier.padding(end = 8.dp),
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-                onClick = { viewModel.changeQuerry() }//negativeAction.onNegativeAction
+                onClick = { viewModel.nextPicture() }
             ) {
-                Text(text = "Button  2")
+                Text(text = "next")
             }
         }
+            val test = 33
+        }
     }
-    /*
-    Button(
-        modifier = Modifier.padding(end = 8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-        onClick = {}//negativeAction.onNegativeAction
-    ) {
-        Text(text = "Button 2")
-    }*/
+
 }
