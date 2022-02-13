@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation
+package com.codingwithmitch.LittleNemo.presentation
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -10,8 +10,8 @@ import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
-import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
-import com.codingwithmitch.food2forkcompose.presentation.ui.PictureCollectionViewModel
+import com.codingwithmitch.LittleNemo.presentation.navigation.Screen
+import com.codingwithmitch.LittleNemo.presentation.ui.PictureCollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

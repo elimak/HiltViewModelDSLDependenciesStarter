@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation
+package com.codingwithmitch.LittleNemo.presentation
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

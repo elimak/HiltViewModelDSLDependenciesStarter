@@ -1,6 +1,6 @@
-package com.codingwithmitch.food2forkcompose
+package com.codingwithmitch.LittleNemo
 
-import com.codingwithmitch.food2forkcompose.presentation.Picture
+import com.codingwithmitch.LittleNemo.presentation.Picture
 
 class PictureDataSource {
 

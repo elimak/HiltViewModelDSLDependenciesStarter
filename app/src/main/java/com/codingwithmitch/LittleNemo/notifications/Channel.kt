@@ -1,6 +1,6 @@
 
 
-package com.codingwithmitch.food2forkcompose.notifications
+package com.codingwithmitch.LittleNemo.notifications
 /*
 import android.app.NotificationChannel
 import android.app.NotificationManager

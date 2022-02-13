@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation.theme
+package com.codingwithmitch.LittleNemo.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

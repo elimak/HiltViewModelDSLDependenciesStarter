@@ -1,7 +1,7 @@
-package com.codingwithmitch.food2forkcompose.di
+package com.codingwithmitch.LittleNemo.di
 
 import android.content.Context
-import com.codingwithmitch.food2forkcompose.presentation.BaseApplication
+import com.codingwithmitch.LittleNemo.presentation.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

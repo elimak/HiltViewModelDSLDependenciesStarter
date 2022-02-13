@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation
+package com.codingwithmitch.LittleNemo.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

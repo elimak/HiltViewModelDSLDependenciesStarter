@@ -1,4 +1,4 @@
-package com.codingwithmitch.food2forkcompose.presentation
+package com.codingwithmitch.LittleNemo.presentation
 
 object PicturesState {
     lateinit var pictures :MutableList<Picture>

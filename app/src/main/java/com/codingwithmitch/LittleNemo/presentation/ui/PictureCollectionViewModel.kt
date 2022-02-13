@@ -1,11 +1,11 @@
-package com.codingwithmitch.food2forkcompose.presentation.ui
+package com.codingwithmitch.LittleNemo.presentation.ui
 
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.codingwithmitch.food2forkcompose.presentation.Picture
-import com.codingwithmitch.food2forkcompose.presentation.PicturesState
+import com.codingwithmitch.LittleNemo.presentation.Picture
+import com.codingwithmitch.LittleNemo.presentation.PicturesState
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
