@@ -2,6 +2,9 @@ package dependencies
 
 object AndroidX {
 
+
+
+
   const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
   const val app_compat = "androidx.appcompat:appcompat:${Versions.app_compat}"
   const val constraint_layout = "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
@@ -10,6 +13,9 @@ object AndroidX {
   // we will remove these 2 dependencies later when building the compose-only nav system
   const val nav_fragment_ktx = "androidx.navigation:navigation-fragment-ktx:${Versions.nav_component}"
   const val nav_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.nav_component}"
+
+
+
 
 
   //implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"

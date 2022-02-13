@@ -7,4 +7,6 @@
     <string name="Yes">Yes</string>
     <string name="No">No</string>
     <string name="Ok">Ok</string>
+    <string name="channel_name">NewContentChannel1</string>
+    <string name="channel_description">new Content</string>
 </resources>

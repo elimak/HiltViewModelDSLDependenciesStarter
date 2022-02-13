@@ -15,6 +15,8 @@ object Versions {
   const val junit5 = "1.7.0.0"
   const val kotlin_compiler_extension = "1.0.0-beta01"
 
+  const val core_version = "1.6.0" //
+
   const val core_ktx = "1.3.2"
   const val app_compat = "1.3.0-beta01"
   const val material = "1.2.1"
