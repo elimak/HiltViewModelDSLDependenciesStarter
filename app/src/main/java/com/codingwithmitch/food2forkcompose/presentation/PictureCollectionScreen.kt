@@ -9,28 +9,29 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-//import androidx.compose.ui.tooling.preview.Preview
 import com.codingwithmitch.food2forkcompose.presentation.ui.Greetings1ViewModel
+import com.google.accompanist.coil.CoilImage
 
 
-@Composable
-fun testi(){
-    Text(text = "Hellooooooooo1 55555")
-}
+
 
 
 
 @Composable
-fun Greeting1(name: String, viewModel: Greetings1ViewModel) {
+fun PictureCollectionScreen(viewModel: Greetings1ViewModel) {
     val currentPictureIndex = viewModel.currentPictureIndex.value
     val picturesState  = viewModel.picturesState.value
-   // var topicVoteStateChanged  = viewModel.topicVoteStateChanged.value // TODO it is just a boolean to redraw the composable --> changes in just topicvotestate wont cause a redraw of this composable
 
-    testi()
+    var pictureData = picturesState[currentPictureIndex].link
+    Image(data = pictureData)
+
     Column (modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom
         ) {
+
+
         var pictureName = picturesState[currentPictureIndex].link
         Text(text = "$pictureName")
 
@@ -43,25 +44,47 @@ fun Greeting1(name: String, viewModel: Greetings1ViewModel) {
                 .padding(10.dp)
         ) {
             if(currentPictureIndex !==0) {
-                Button(
-                    modifier = Modifier.padding(end = 8.dp),
-                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-                    onClick = { viewModel.previousPicture() }
-                ) {
-                    Text(text = "prev")
-                }
+                ButtonNext( viewModel= viewModel)
             }
             if(currentPictureIndex < picturesState.size-1){
-            Button(
-                modifier = Modifier.padding(end = 8.dp),
-                colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onError),
-                onClick = { viewModel.nextPicture() }
-            ) {
-                Text(text = "next")
-            }
+                ButtonPrev( viewModel= viewModel)
         }
-            val test = 33
         }
     }
-
 }
+
+
+
+@Composable
+fun Image(data:String){
+    CoilImage(
+        data = data,
+        contentDescription = "",
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(225.dp),
+        contentScale = ContentScale.Crop,)
+}
+
+@Composable
+fun ButtonNext( viewModel: Greetings1ViewModel) {
+    Button(
+        modifier = Modifier.padding(end = 8.dp),
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
+        onClick = { viewModel.previousPicture() },
+
+    ) {
+        Text(text = "prev")
+    }
+}
+@Composable
+fun ButtonPrev( viewModel: Greetings1ViewModel) {
+    Button(
+        modifier = Modifier.padding(end = 8.dp),
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
+        onClick = { viewModel.nextPicture() }
+    ) {
+        Text(text = "next")
+    }
+}
+

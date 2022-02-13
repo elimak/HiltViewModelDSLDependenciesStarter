@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(){
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
 
           val viewModel: Greetings1ViewModel = viewModel("RecipeListViewModel", factory)
-          Greeting1(name = "1111",viewModel = viewModel)
+          PictureCollectionScreen(viewModel = viewModel)
 
           }
           composable(
