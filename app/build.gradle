@@ -20,7 +20,7 @@ android {
     compileSdkVersion Versions.compileSdk
 
     defaultConfig {
-        applicationId "com.codingwithmitch.LittleNemo"
+        applicationId "de.apps.LittleNemo"
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
         versionCode Versions.versionCode

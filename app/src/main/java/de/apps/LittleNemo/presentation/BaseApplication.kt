@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation
+package de.apps.LittleNemo.presentation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

@@ -1,6 +1,6 @@
-package com.codingwithmitch.LittleNemo.presentation
+package de.apps.LittleNemo.presentation
 
-import com.codingwithmitch.LittleNemo.PictureDataSource
+import de.apps.LittleNemo.PictureDataSource
 
 object PictureInit {
     init {

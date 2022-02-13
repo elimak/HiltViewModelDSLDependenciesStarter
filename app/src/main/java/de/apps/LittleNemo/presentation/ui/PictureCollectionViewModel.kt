@@ -1,11 +1,11 @@
-package com.codingwithmitch.LittleNemo.presentation.ui
+package de.apps.LittleNemo.presentation.ui
 
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.codingwithmitch.LittleNemo.presentation.Picture
-import com.codingwithmitch.LittleNemo.presentation.PicturesState
+import de.apps.LittleNemo.presentation.Picture
+import de.apps.LittleNemo.presentation.PicturesState
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

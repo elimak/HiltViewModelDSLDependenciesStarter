@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation.theme
+package de.apps.LittleNemo.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color
@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.codingwithmitch.LittleNemo.R
+import de.apps.LittleNemo.R
 
 
 private val QuickSand = FontFamily(

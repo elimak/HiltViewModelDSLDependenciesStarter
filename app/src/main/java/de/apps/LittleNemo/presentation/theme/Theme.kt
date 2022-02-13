@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation.theme
+package de.apps.LittleNemo.presentation.theme
 
 import androidx.compose.material.*
 import androidx.compose.ui.graphics.Color

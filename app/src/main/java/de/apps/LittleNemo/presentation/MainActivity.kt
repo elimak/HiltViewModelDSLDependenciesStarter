@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation
+package de.apps.LittleNemo.presentation
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -10,8 +10,8 @@ import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
-import com.codingwithmitch.LittleNemo.presentation.navigation.Screen
-import com.codingwithmitch.LittleNemo.presentation.ui.PictureCollectionViewModel
+import de.apps.LittleNemo.presentation.navigation.Screen
+import de.apps.LittleNemo.presentation.ui.PictureCollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

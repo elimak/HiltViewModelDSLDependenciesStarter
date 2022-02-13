@@ -1,7 +1,7 @@
-package com.codingwithmitch.LittleNemo.di
+package de.apps.LittleNemo.di
 
 import android.content.Context
-import com.codingwithmitch.LittleNemo.presentation.BaseApplication
+import de.apps.LittleNemo.presentation.BaseApplication
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

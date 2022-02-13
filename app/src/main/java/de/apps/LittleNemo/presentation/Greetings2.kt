@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation
+package de.apps.LittleNemo.presentation
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

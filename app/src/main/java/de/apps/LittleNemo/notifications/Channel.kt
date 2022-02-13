@@ -1,6 +1,6 @@
 
 
-package com.codingwithmitch.LittleNemo.notifications
+package de.apps.LittleNemo.notifications
 /*
 import android.app.NotificationChannel
 import android.app.NotificationManager

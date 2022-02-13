@@ -1,6 +1,6 @@
-package com.codingwithmitch.LittleNemo
+package de.apps.LittleNemo
 
-import com.codingwithmitch.LittleNemo.presentation.Picture
+import de.apps.LittleNemo.presentation.Picture
 
 class PictureDataSource {
 

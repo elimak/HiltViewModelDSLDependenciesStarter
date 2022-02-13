@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation
+package de.apps.LittleNemo.presentation
 
 object PicturesState {
     lateinit var pictures :MutableList<Picture>

@@ -1,4 +1,4 @@
-package com.codingwithmitch.LittleNemo.presentation.navigation
+package de.apps.LittleNemo.presentation.navigation
 
 sealed class Screen(
     val route: String,
