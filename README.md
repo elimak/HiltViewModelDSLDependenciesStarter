@@ -1,9 +1,4 @@
-# food2fork.ca Compose App
-This is the successor to [github.com/mitchtabian/MVVMRecipeApp](https://github.com/mitchtabian/MVVMRecipeApp).
-
-It contains the same overall functionality but has additional features.
-
-# Features:
+#  Features:
 1. Kotlin
 1. MVVM
 1. Compose navigation (one activity, zero fragments)
