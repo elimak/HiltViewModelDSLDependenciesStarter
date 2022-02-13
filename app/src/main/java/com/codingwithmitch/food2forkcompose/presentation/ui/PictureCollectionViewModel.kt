@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class Greetings1ViewModel
+class PictureCollectionViewModel
 @Inject
 constructor(
 

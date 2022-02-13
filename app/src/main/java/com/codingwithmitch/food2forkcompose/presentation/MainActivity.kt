@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import com.codingwithmitch.food2forkcompose.presentation.navigation.Screen
-import com.codingwithmitch.food2forkcompose.presentation.ui.Greetings1ViewModel
+import com.codingwithmitch.food2forkcompose.presentation.ui.PictureCollectionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(){
       composable(route = Screen.RecipeList.route) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
 
-          val viewModel: Greetings1ViewModel = viewModel("RecipeListViewModel", factory)
+          val viewModel: PictureCollectionViewModel = viewModel("RecipeListViewModel", factory)
           PictureCollectionScreen(viewModel = viewModel)
 
           }

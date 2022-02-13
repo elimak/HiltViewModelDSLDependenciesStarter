@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import com.codingwithmitch.food2forkcompose.presentation.ui.Greetings1ViewModel
+import com.codingwithmitch.food2forkcompose.presentation.ui.PictureCollectionViewModel
 import com.google.accompanist.coil.CoilImage
 
 
@@ -20,7 +20,7 @@ import com.google.accompanist.coil.CoilImage
 
 
 @Composable
-fun PictureCollectionScreen(viewModel: Greetings1ViewModel) {
+fun PictureCollectionScreen(viewModel: PictureCollectionViewModel) {
     val currentPictureIndex = viewModel.currentPictureIndex.value
     val picturesState  = viewModel.picturesState.value
 
@@ -67,7 +67,7 @@ fun Image(data:String){
 }
 
 @Composable
-fun ButtonNext( viewModel: Greetings1ViewModel) {
+fun ButtonNext( viewModel: PictureCollectionViewModel) {
     Button(
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
@@ -78,7 +78,7 @@ fun ButtonNext( viewModel: Greetings1ViewModel) {
     }
 }
 @Composable
-fun ButtonPrev( viewModel: Greetings1ViewModel) {
+fun ButtonPrev( viewModel: PictureCollectionViewModel) {
     Button(
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
