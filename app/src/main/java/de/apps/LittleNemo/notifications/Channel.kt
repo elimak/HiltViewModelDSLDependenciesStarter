@@ -6,12 +6,8 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
-import android.provider.Settings.Secure.getString
-//import android.provider.Settings.Global.getString
-//import android.provider.Settings.System.getString
-//import androidx.core.content.ContextCompat.getSystemService
-//import androidx.core.content.res.TypedArrayUtils.getString
-import com.codingwithmitch.food2forkcompose.R
+import androidx.core.content.ContextCompat.getSystemService
+import de.apps.LittleNemo.R
 
 private fun createNotificationChannel() {
     // Create the NotificationChannel, but only on API 26+ because
@@ -20,7 +16,6 @@ private fun createNotificationChannel() {
         val name = getString(R.string.channel_name)
         val descriptionText = getString(R.string.channel_description)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
-        val CHANNEL_ID = "123"
         val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
             description = descriptionText
         }
@@ -31,3 +26,32 @@ private fun createNotificationChannel() {
     }
 }
 */
+
+/*
+private fun createNotificationChannel() {
+    // Create the NotificationChannel, but only on API 26+ because
+    // the NotificationChannel class is new and not in the support library
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val name = (R.string.channel_name).toString()
+        val descriptionText = (R.string.channel_description).toString()
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val CHANNEL_ID = "123"
+        val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+            description = descriptionText
+        }
+        // Register the channel with the system
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+
+        //////////
+
+        // Register the channel with the system
+        val notificationManager: NotificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+
+        ////////
+
+    }
+}*/

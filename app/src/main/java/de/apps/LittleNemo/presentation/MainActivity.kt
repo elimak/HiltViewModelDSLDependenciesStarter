@@ -1,11 +1,13 @@
 package de.apps.LittleNemo.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -20,6 +22,17 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
+    fun share():Unit {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+
+    }
 
 
   @ExperimentalComposeUiApi
@@ -35,7 +48,7 @@ class MainActivity : AppCompatActivity(){
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
 
           val viewModel: PictureCollectionViewModel = viewModel("RecipeListViewModel", factory)
-          PictureCollectionScreen(viewModel = viewModel)
+          PictureCollectionScreen(viewModel = viewModel, share = {share()} )
 
           }
           composable(

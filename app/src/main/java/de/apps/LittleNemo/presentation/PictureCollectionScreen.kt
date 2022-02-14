@@ -20,7 +20,7 @@ import com.google.accompanist.coil.CoilImage
 
 
 @Composable
-fun PictureCollectionScreen(viewModel: PictureCollectionViewModel) {
+fun PictureCollectionScreen(viewModel: PictureCollectionViewModel, share: () -> Unit) {
     val currentPictureIndex = viewModel.currentPictureIndex.value
     val picturesState  = viewModel.picturesState.value
 
@@ -34,6 +34,7 @@ fun PictureCollectionScreen(viewModel: PictureCollectionViewModel) {
 
         var pictureName = picturesState[currentPictureIndex].link
         Text(text = "$pictureName")
+        ButtonShare(share = share)
 
         Row(
             horizontalArrangement = Arrangement.SpaceAround,
@@ -43,6 +44,8 @@ fun PictureCollectionScreen(viewModel: PictureCollectionViewModel) {
                 .background(MaterialTheme.colors.onPrimary)
                 .padding(10.dp)
         ) {
+
+
             if(currentPictureIndex !==0) {
                 ButtonNext( viewModel= viewModel)
             }
@@ -64,6 +67,19 @@ fun Image(data:String){
             .fillMaxWidth()
             .height(225.dp),
         contentScale = ContentScale.Crop,)
+}
+
+
+@Composable
+fun ButtonShare( share: () -> Unit) {
+    Button(
+        modifier = Modifier.padding(end = 8.dp),
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
+        onClick = { share() },
+
+        ) {
+        Text(text = "share")
+    }
 }
 
 @Composable
