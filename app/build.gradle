@@ -7,6 +7,8 @@ import dependencies.UnitTest
 import dependencies.Versions
 import dependencies.AndroidX
 import dependencies.Google
+import dependencies.Ktor
+import dependencies.Kotlinx
 
 plugins {
     id 'com.android.application'
@@ -64,7 +66,14 @@ dependencies {
     implementation "androidx.core:core:1.6.0" // TODO try to move to  buildSrc Module
     //implementation "androidx.core:core:$core_version"
 
-    //implementation android_support_notifications // for notifications / not androidx! Problem?
+    implementation Ktor.core
+    implementation Ktor.clientSerialization
+    implementation Ktor.android
+    implementation Ktor.ios
+
+    implementation Kotlinx.datetime
+
+        //implementation android_support_notifications // for notifications / not androidx! Problem?
 
     implementation AndroidX.core_ktx
     implementation AndroidX.app_compat
