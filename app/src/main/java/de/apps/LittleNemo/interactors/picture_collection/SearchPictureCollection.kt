@@ -36,7 +36,7 @@ class SearchPictureCollection(
                 )
                 val test = recipes
                 // TODO JUST FOR TESTING NOW --> later needs to be from DB
-                emit(DataState.success(recipes))
+                //---------- PROBLEM ??? ----------------->>>>    NEE WAS KÖNNTE NOCH DAS PROBLEM SEIN ???? emit(DataState.success(recipes))
                 /*
                 // Convert: NetworkRecipeEntity -> Recipe -> RecipeCacheEntity
                 val recipes = getRecipesFromNetwork(

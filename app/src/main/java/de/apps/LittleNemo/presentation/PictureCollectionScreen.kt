@@ -105,7 +105,7 @@ fun ButtonPrev( viewModel: PictureCollectionViewModel) {
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
         //onClick = { viewModel.nextPicture() }
-        onClick = { viewModel.loadRecipes() } // TODO TESTING
+        onClick = { viewModel.onTriggerEvent() } // TODO TESTING
     ) {
         Text(text = "prev")
     }

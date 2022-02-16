@@ -14,6 +14,7 @@ import de.apps.LittleNemo.domain.model.Recipe
 import de.apps.LittleNemo.interactors.picture_collection.SearchPictureCollection
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -34,14 +35,41 @@ constructor(
 
     init {
         picturesState.value = PicturesState.pictures
-        loadRecipes()
+        //loadRecipes() // TODO add later !!
     }
 
 
-    /////// TODO   --  ADD USECASES
-    // TODO SHOULD BE PRIVATE !!
-     fun loadRecipes(){
-        searchPictureCollection.execute(page = 1, query = "",).onEach { dataState ->
+
+    fun onTriggerEvent(){//event: RecipeListEvent){
+        viewModelScope.launch {
+            try {
+                loadPictureCollection()
+                /*
+                when(event){
+                    is RecipeListEvent.NewSearchEvent -> {
+                        newSearch()
+                    }
+                    is RecipeListEvent.NextPageEvent -> {
+                        nextPage()
+                    }
+                    is RecipeListEvent.RestoreStateEvent -> {
+                        restoreState()
+                    }
+                }*/
+            }catch (e: Exception){
+                //Log.e(TAG, "launchJob: Exception: ${e}, ${e.cause}")
+                e.printStackTrace()
+            }
+            finally {
+                //Log.d(TAG, "launchJob: finally called.")
+            }
+        }
+    }
+
+
+
+    private fun loadPictureCollection(){
+        searchPictureCollection.execute(page = 1, query = "").onEach { dataState ->
             loading.value = dataState.loading
 
 
