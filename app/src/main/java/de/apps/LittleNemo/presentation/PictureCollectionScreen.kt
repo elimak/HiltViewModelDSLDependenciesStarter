@@ -23,6 +23,8 @@ import com.google.accompanist.coil.CoilImage
 fun PictureCollectionScreen(viewModel: PictureCollectionViewModel, share: () -> Unit) {
     val currentPictureIndex = viewModel.currentPictureIndex.value
     val picturesState  = viewModel.picturesState.value
+    // TODO DELETE LATER
+    val recipes = viewModel.recipes.value
 
     var pictureData = picturesState[currentPictureIndex].link
     Image(data = pictureData)
@@ -33,7 +35,10 @@ fun PictureCollectionScreen(viewModel: PictureCollectionViewModel, share: () -> 
 
 
         var pictureName = picturesState[currentPictureIndex].link
-        Text(text = "$pictureName")
+        //Text(text = "$pictureName")
+        var textFromRecipe = recipes[0].title
+        Text(text = "$textFromRecipe")
+
         ButtonShare(share = share)
 
         Row(
@@ -89,8 +94,9 @@ fun ButtonNext( viewModel: PictureCollectionViewModel) {
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
         onClick = { viewModel.previousPicture() },
 
+
     ) {
-        Text(text = "prev")
+        Text(text = "next")
     }
 }
 @Composable
@@ -98,9 +104,10 @@ fun ButtonPrev( viewModel: PictureCollectionViewModel) {
     Button(
         modifier = Modifier.padding(end = 8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
-        onClick = { viewModel.nextPicture() }
+        //onClick = { viewModel.nextPicture() }
+        onClick = { viewModel.loadRecipes() } // TODO TESTING
     ) {
-        Text(text = "next")
+        Text(text = "prev")
     }
 }
 

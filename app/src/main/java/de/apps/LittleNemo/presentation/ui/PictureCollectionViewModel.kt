@@ -1,6 +1,7 @@
 package de.apps.LittleNemo.presentation.ui
 
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -9,7 +10,10 @@ import de.apps.LittleNemo.presentation.Picture
 import de.apps.LittleNemo.presentation.PicturesState
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import de.apps.LittleNemo.domain.model.Recipe
 import de.apps.LittleNemo.interactors.picture_collection.SearchPictureCollection
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
@@ -25,6 +29,8 @@ constructor(
 
     val currentPictureIndex = mutableStateOf(0)
     val picturesState: MutableState<List<Picture>> = mutableStateOf(ArrayList())
+    val loading = mutableStateOf(false)
+    val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
 
     init {
         picturesState.value = PicturesState.pictures
@@ -32,12 +38,33 @@ constructor(
     }
 
 
-    ///////
-    private fun loadRecipes(){
+    /////// TODO   --  ADD USECASES
+    // TODO SHOULD BE PRIVATE !!
+     fun loadRecipes(){
+        searchPictureCollection.execute(page = 1, query = "",).onEach { dataState ->
+            loading.value = dataState.loading
+
+
+
+            dataState.data?.let { list ->
+                recipes.value = list
+            }
+/*
+            dataState.error?.let { error ->
+                Log.e(TAG, "newSearch: ${error}")
+                dialogQueue.appendErrorMessage("An Error Occurred", error)
+            }
+
+             */
+        }.launchIn(viewModelScope)
+
+
+        /*
         searchPictureCollection.execute(
             page = 1,
             query = ""
         )
+        */
             /*
             .collectCommon(viewModelScope) { dataState ->
             state.value = state.value.copy(isLoading = dataState.isLoading)

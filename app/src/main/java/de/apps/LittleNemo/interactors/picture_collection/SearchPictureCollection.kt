@@ -17,7 +17,7 @@ class SearchPictureCollection(
         query: String,
     ): Flow<DataState<List<Recipe>>> = flow {
         try {
-            //emit(DataState.loading())
+            emit(DataState.loading())
 
             // just to show pagination, api is fast
 //      delay(1000)
@@ -35,6 +35,8 @@ class SearchPictureCollection(
                     query = query,
                 )
                 val test = recipes
+                // TODO JUST FOR TESTING NOW --> later needs to be from DB
+                emit(DataState.success(recipes))
                 /*
                 // Convert: NetworkRecipeEntity -> Recipe -> RecipeCacheEntity
                 val recipes = getRecipesFromNetwork(
