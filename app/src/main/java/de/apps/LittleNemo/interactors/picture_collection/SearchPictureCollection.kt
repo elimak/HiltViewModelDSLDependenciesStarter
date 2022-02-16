@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 
 
 class SearchPictureCollection(
-    private val recipeService: RecipeService,
+    //private val recipeService: RecipeService,
     //private val recipeCache: RecipeCache,
 ) {
     fun execute(
@@ -29,12 +29,15 @@ class SearchPictureCollection(
             }
 */
             try{
-
+/*
                 val recipes = recipeService.search(
                     page = page,
                     query = query,
                 )
                 val test = recipes
+
+ */
+                var test = "df"
                 // TODO JUST FOR TESTING NOW --> later needs to be from DB
                 //---------- PROBLEM ??? ----------------->>>>    NEE WAS KÖNNTE NOCH DAS PROBLEM SEIN ???? emit(DataState.success(recipes))
                 /*

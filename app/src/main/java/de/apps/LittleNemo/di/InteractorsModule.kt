@@ -15,11 +15,11 @@ object InteractorsModule {
     @Singleton
     @Provides
     fun provideSearchRecipes(
-        recipeService: RecipeService,
+        //recipeService: RecipeService,
         //recipeCache: RecipeCache,
     ): SearchPictureCollection {
         return SearchPictureCollection(
-            recipeService = recipeService,
+            //---recipeService = recipeService,
             //recipeCache = recipeCache
         )
     }

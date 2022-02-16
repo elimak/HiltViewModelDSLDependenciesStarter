@@ -41,21 +41,10 @@ constructor(
 
 
     fun onTriggerEvent(){//event: RecipeListEvent){
-        viewModelScope.launch {
+       /* viewModelScope.launch {
             try {
                 loadPictureCollection()
-                /*
-                when(event){
-                    is RecipeListEvent.NewSearchEvent -> {
-                        newSearch()
-                    }
-                    is RecipeListEvent.NextPageEvent -> {
-                        nextPage()
-                    }
-                    is RecipeListEvent.RestoreStateEvent -> {
-                        restoreState()
-                    }
-                }*/
+
             }catch (e: Exception){
                 //Log.e(TAG, "launchJob: Exception: ${e}, ${e.cause}")
                 e.printStackTrace()
@@ -63,7 +52,7 @@ constructor(
             finally {
                 //Log.d(TAG, "launchJob: finally called.")
             }
-        }
+        }*/
     }
 
 
