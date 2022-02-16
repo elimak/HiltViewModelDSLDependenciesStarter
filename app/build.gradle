@@ -69,7 +69,7 @@ dependencies {
     implementation Ktor.core
     implementation Ktor.clientSerialization
     implementation Ktor.android
-    implementation Ktor.ios
+   // implementation Ktor.ios
 
     implementation Kotlinx.datetime
 
