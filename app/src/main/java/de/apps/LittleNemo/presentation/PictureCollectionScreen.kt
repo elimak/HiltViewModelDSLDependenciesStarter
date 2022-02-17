@@ -36,8 +36,8 @@ fun PictureCollectionScreen(viewModel: PictureCollectionViewModel, share: () -> 
 
         var pictureName = picturesState[currentPictureIndex].link
         //Text(text = "$pictureName")
-        var textFromRecipe = recipes[0].title
-        Text(text = "$textFromRecipe")
+       // --- BUG HERE?? var textFromRecipe = recipes[0].title
+        //--BUG HERE?? Text(text = "$textFromRecipe")
 
         ButtonShare(share = share)
 
