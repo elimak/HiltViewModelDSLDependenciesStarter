@@ -12,17 +12,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import de.apps.LittleNemo.presentation.ui.picture_collection.PictureCollectionViewModel
 import com.google.accompanist.coil.CoilImage
+import de.apps.LittleNemo.presentation.components.AppBarCustom
 import de.apps.LittleNemo.presentation.theme.AppTheme
+import de.apps.LittleNemo.presentation.ui.getAllMenus1
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
 
 
-/*
-@Composable
-fun (viewModel: PictureCollectionViewModel, share: () -> Unit) {
 
-*/
 @ExperimentalComposeUiApi
 @ExperimentalCoroutinesApi
 @ExperimentalMaterialApi
@@ -53,13 +51,11 @@ fun PictureCollectionScreen(
         Scaffold(
 
             topBar = {
-                AppBar(
-
+                AppBarCustom(
                     menuCategories = getAllMenus1(),
                     selectedCategory = selectedCategory,
                     onSelectedCategoryChanged = viewModel::onSelectedCategoryChanged,
                     onToggleTheme = { onToggleTheme() }
-
                 )
             },
             scaffoldState = scaffoldState,
@@ -71,8 +67,9 @@ fun PictureCollectionScreen(
             val coroutineScope = rememberCoroutineScope()
             PictureCollection(
                 viewModel = viewModel,
+                share = {share()},//share,
                 // TODO CHANGE NAMING LATER  onVote // also delete if no snackbar is needed
-                onVoteSnackBar = {
+                /*onVoteSnackBar = {
                     coroutineScope.launch {
                         scaffoldState.snackbarHostState.showSnackbar(message = "+")
                     }
@@ -81,7 +78,7 @@ fun PictureCollectionScreen(
                     coroutineScope.launch {
                         scaffoldState.snackbarHostState.showSnackbar(message = "-")
                     }
-                }
+                }*/
 
             )
         }

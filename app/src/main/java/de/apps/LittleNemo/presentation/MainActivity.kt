@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
@@ -21,6 +22,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
+    private var isDark = mutableStateOf(false)
+
+    // TODO move that
     fun share():Unit {
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity(){
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
 
           val viewModel: PictureCollectionViewModel = viewModel("RecipeListViewModel", factory)
-          PictureCollectionScreen(viewModel = viewModel, share = {share()} )
+          PictureCollectionScreen(viewModel = viewModel, share = {share()},isDarkTheme=isDark.value, onToggleTheme = {isDark.value = !isDark.value} )
 
           }
           composable(
@@ -57,7 +61,8 @@ class MainActivity : AppCompatActivity(){
             })
           ) { navBackStackEntry ->
             val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-            Greeting2(name = "2222")
+            // TODO DELETE
+              Greeting2(name = "2222")
 
           }
         }

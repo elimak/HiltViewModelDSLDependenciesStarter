@@ -12,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import de.apps.LittleNemo.domain.model.Recipe
 import de.apps.LittleNemo.interactors.picture_collection.SearchPictureCollection
 import de.apps.LittleNemo.presentation.ui.MenuCategory1
+import de.apps.LittleNemo.presentation.ui.getMenuCategory1
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -125,5 +126,15 @@ constructor(
     */
 
     ///////
+
+    fun onSelectedCategoryChanged(category:String){
+        val newCategory = getMenuCategory1(category)
+        setSelectedCategory(newCategory)
+    }
+
+    private fun setSelectedCategory(category: MenuCategory1?){
+        selectedCategory.value = category
+
+    }
 
 }
