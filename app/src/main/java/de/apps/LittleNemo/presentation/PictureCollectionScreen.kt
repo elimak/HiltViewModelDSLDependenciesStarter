@@ -39,6 +39,11 @@ fun PictureCollectionScreen(viewModel: PictureCollectionViewModel, share: () -> 
        // --- BUG HERE?? var textFromRecipe = recipes[0].title
         //--BUG HERE?? Text(text = "$textFromRecipe")
 
+        // TEST null
+        //var textFromRecipe:String? = null
+        //Text(text = "$textFromRecipe")
+
+
         ButtonShare(share = share)
 
         Row(
