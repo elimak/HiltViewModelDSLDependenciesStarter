@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 
 
 class SearchPictureCollection(
-    //private val recipeService: RecipeService,
+    private val recipeService: RecipeService,
     //private val recipeCache: RecipeCache,
 ) {
     fun execute(
@@ -28,16 +28,17 @@ class SearchPictureCollection(
                 throw Exception("Search FAILED!")
             }
 */
-            try{
-/*
+            //try{
+
                 val recipes = recipeService.search(
                     page = page,
                     query = query,
                 )
-                val test = recipes
+                emit(DataState.success(recipes))
 
- */
-                var test = "df"
+                //val test = recipes
+
+
                 // TODO JUST FOR TESTING NOW --> later needs to be from DB
                 //---------- PROBLEM ??? ----------------->>>>    NEE WAS KÖNNTE NOCH DAS PROBLEM SEIN ???? emit(DataState.success(recipes))
                 /*
@@ -50,10 +51,10 @@ class SearchPictureCollection(
 
                 // insert into cache
                 //recipeDao.insertRecipes(entityMapper.toEntityList(recipes))
-            }catch (e: Exception){
+          /*  }catch (e: Exception){
                 // There was a network issue
                 e.printStackTrace()
-            }
+            }*/
 
             /*
             // query the cache
@@ -72,10 +73,10 @@ class SearchPictureCollection(
 
             // emit List<Recipe> from cache
             val list = entityMapper.fromEntityList(cacheResult)
+*/
+            //emit(DataState.success(recipes))
 
-            emit(DataState.success(list))
 
-             */
         } catch (e: Exception) {
             //emit(DataState.error<List<Recipe>>(e.message ?: "Unknown Error"))
         }

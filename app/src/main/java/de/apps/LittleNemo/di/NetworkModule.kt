@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule{
-/*
+
     @Singleton
     @Provides
     fun provideHttpClient(): HttpClient {
@@ -31,6 +31,6 @@ object NetworkModule{
             baseUrl = RecipeServiceImpl.BASE_URL,
         )
     }
-    */
+
 
 }
