@@ -15,6 +15,7 @@ import com.google.accompanist.coil.CoilImage
 import de.apps.LittleNemo.presentation.components.AppBarCustom
 import de.apps.LittleNemo.presentation.theme.AppTheme
 import de.apps.LittleNemo.presentation.ui.getAllMenus1
+import de.apps.LittleNemo.presentation.ui.picture_collection.PictureCollection
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -38,12 +39,12 @@ fun PictureCollectionScreen(
     // TODO DELETE LATER
     val recipes = viewModel.recipes.value
     val selectedCategory = viewModel.selectedCategory.value
-
+    val loading = viewModel.loading.value
 
     val scaffoldState = rememberScaffoldState()
 
     AppTheme(
-
+        displayProgressBar = loading,
         scaffoldState = scaffoldState,
         darkTheme = isDarkTheme,
 
@@ -66,6 +67,7 @@ fun PictureCollectionScreen(
 
             val coroutineScope = rememberCoroutineScope()
             PictureCollection(
+                loading = loading,
                 viewModel = viewModel,
                 share = {share()},//share,
                 // TODO CHANGE NAMING LATER  onVote // also delete if no snackbar is needed
@@ -85,107 +87,4 @@ fun PictureCollectionScreen(
     }
 }
 
-
-//////////////////////////////////////////
-/////////////////////////////////////////////
-@Composable
-fun PictureCollection(viewModel: PictureCollectionViewModel, share: () -> Unit) {
-    val currentPictureIndex = viewModel.currentPictureIndex.value
-    val picturesState  = viewModel.picturesState.value
-    // TODO DELETE LATER
-    val recipes = viewModel.recipes.value
-
-
-
-
-
-    var pictureData = picturesState[currentPictureIndex].link
-    Image(data = pictureData)
-
-    Column (modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Bottom
-        ) {
-
-
-        var pictureName = picturesState[currentPictureIndex].link
-        //Text(text = "$pictureName")
-       // --- BUG HERE?? var textFromRecipe = recipes[0].title
-        //--BUG HERE?? Text(text = "$textFromRecipe")
-
-        // TEST null
-        //var textFromRecipe:String? = null
-        //Text(text = "$textFromRecipe")
-
-
-        ButtonShare(share = share)
-
-        Row(
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(MaterialTheme.colors.onPrimary)
-                .padding(10.dp)
-        ) {
-
-
-            if(currentPictureIndex !==0) {
-                ButtonNext( viewModel= viewModel)
-            }
-            if(currentPictureIndex < picturesState.size-1){
-                ButtonPrev( viewModel= viewModel)
-        }
-        }
-    }
-}
-
-
-
-@Composable
-fun Image(data:String){
-    CoilImage(
-        data = data,
-        contentDescription = "",
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(225.dp),
-        contentScale = ContentScale.Crop,)
-}
-
-
-@Composable
-fun ButtonShare( share: () -> Unit) {
-    Button(
-        modifier = Modifier.padding(end = 8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
-        onClick = { share() },
-
-        ) {
-        Text(text = "share")
-    }
-}
-
-@Composable
-fun ButtonNext( viewModel: PictureCollectionViewModel) {
-    Button(
-        modifier = Modifier.padding(end = 8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
-        onClick = { viewModel.previousPicture() },
-
-
-    ) {
-        Text(text = "next")
-    }
-}
-@Composable
-fun ButtonPrev( viewModel: PictureCollectionViewModel) {
-    Button(
-        modifier = Modifier.padding(end = 8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onSecondary),
-        //onClick = { viewModel.nextPicture() }
-        onClick = { viewModel.onTriggerEvent() } // TODO TESTING
-    ) {
-        Text(text = "prev")
-    }
-}
 

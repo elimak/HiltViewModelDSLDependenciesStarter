@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import de.apps.LittleNemo.presentation.components.CircularIndeterminateProgressBar
 import de.apps.LittleNemo.presentation.components.DefaultSnackbar
 
 private val LightThemeColors = lightColors(
@@ -44,6 +45,7 @@ private val DarkThemeColors = darkColors(
 @ExperimentalMaterialApi
 @Composable
 fun AppTheme(
+  displayProgressBar: Boolean,
   darkTheme: Boolean,
 
   scaffoldState: ScaffoldState,
@@ -64,6 +66,7 @@ fun AppTheme(
 
         content()
       }
+      CircularIndeterminateProgressBar(isDisplayed = displayProgressBar, 0.3f)
 // TODO implement SnackbarController  to not queue the snackbars but cancel them
       DefaultSnackbar(
         snackbarHostState = scaffoldState.snackbarHostState,

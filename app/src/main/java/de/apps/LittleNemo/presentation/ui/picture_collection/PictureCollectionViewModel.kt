@@ -15,6 +15,7 @@ import de.apps.LittleNemo.presentation.ui.MenuCategory1
 import de.apps.LittleNemo.presentation.ui.getMenuCategory1
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -30,7 +31,9 @@ constructor(
 
     val currentPictureIndex = mutableStateOf(0)
     val picturesState: MutableState<List<Picture>> = mutableStateOf(ArrayList())
+
     val loading = mutableStateOf(false)
+
 
     // TODO CHANGE NAME/delete LATER
     val recipes: MutableState<List<Recipe>> = mutableStateOf(ArrayList())
@@ -38,13 +41,13 @@ constructor(
     val selectedCategory: MutableState<MenuCategory1?> = mutableStateOf(null)
     init {
         picturesState.value = PicturesState.pictures
-        //loadRecipes() // TODO add later !!
+        onTriggerEvent()
     }
 
 
 
     fun onTriggerEvent(){//event: RecipeListEvent){
-       /* viewModelScope.launch {
+       viewModelScope.launch {
             try {
                 loadPictureCollection()
 
@@ -55,7 +58,7 @@ constructor(
             finally {
                 //Log.d(TAG, "launchJob: finally called.")
             }
-        }*/
+        }
     }
 
 
